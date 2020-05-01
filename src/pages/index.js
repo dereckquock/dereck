@@ -3,7 +3,7 @@ import { useStaticQuery, graphql, Link } from 'gatsby';
 import Image from 'gatsby-image';
 import SEO from '../components/seo';
 import Layout from '../components/layout';
-import Heading from '../components/Heading';
+import Heading from '../components/heading';
 
 function App(props) {
   // get blog posts, which always contain a date 📅
