@@ -40,14 +40,11 @@ CSS Keyframes make it as easy as pie 🥧
 }
 ```
 
-In React Native, it's not as easy. Any animation usually has to be done using
-[`react-native-reanimated`](https://github.com/software-mansion/react-native-reanimated),
-which is a powerful tool, once you figure out how to declaratively compose
-animations. With the help of
-[`react-native-redash`](https://github.com/wcandillon/react-native-redash) from
+In React Native, it's not as easy. Animations are usually implemented using
+[react-native-reanimated](https://github.com/software-mansion/react-native-reanimated)
+and with the help of [react-native-redash](https://github.com/wcandillon/react-native-redash) from
 William Candillon, who does the [_Can it be done in React Native_ videos on
-YouTube](https://www.youtube.com/user/wcandill). He is a React Native wizard and
-can clone a lot of cool native app functionality in React Native.
+YouTube](https://www.youtube.com/user/wcandill), it was a lot more painless.
 
 A blinking dot in React Native looks something like this:
 
@@ -68,7 +65,9 @@ function BlinkingDot() {
         loop({
           duration: 1000,
           easing: Easing.inOut(Easing.ease),
-          // the animation goes from 0 to 1 and then from 1 to 0 in the next cycle
+
+          // the animation goes from 0 to 1 and then
+          // from 1 to 0 in the next cycle
           boomerang: true,
           autoStart: true,
         })
@@ -89,7 +88,6 @@ function BlinkingDot() {
 }
 ```
 
-The [`loop()`
-function](https://wcandillon.github.io/react-native-redash/run-animations#loop)
-makes this easier to do and with the `boomerang` option set to `true` the
+The [loop() function](https://wcandillon.github.io/react-native-redash/run-animations#loop)
+makes this easier to do and with the `boomerang` option set to `true`, the
 opacity will bounce back and forth from 0 to 1 🦘
