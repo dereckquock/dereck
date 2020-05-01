@@ -71,7 +71,7 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: 'gatsby-default-mdx-basic',
-        short_name: 'starter',
+        short_name: 'dereck quock',
         start_url: '/',
         background_color: '#25282c',
         theme_color: '#25282c',
