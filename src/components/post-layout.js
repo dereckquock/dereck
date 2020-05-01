@@ -3,13 +3,12 @@ import { graphql, Link } from 'gatsby';
 import Image from 'gatsby-image';
 import { MDXProvider } from '@mdx-js/react';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
-import Layout from '../components/layout';
-import SEO from '../components/seo';
-import Code from '../components/code';
-
-const Counter = React.lazy(() => import('./counter'));
-const BlinkingDot = React.lazy(() => import('./blinking-dot'));
-const StickyButton = React.lazy(() => import('./sticky-button'));
+import Layout from './layout';
+import SEO from './seo';
+import Code from './code';
+import Counter from './counter';
+import BlinkingDot from './blinking-dot';
+import StickyButton from './sticky-button';
 
 // Provide common components here so that they're globally available
 const components = {

@@ -22,20 +22,9 @@ super easy to write content 📝. I already write most things in Markdown, so MD
 made it simple and easy to work with. MDX also integrates seamlessly with React
 components! So you can import React components right into your Markdown 🔥
 
-<Suspense fallback={<p>loading button...</p>}>
-  <Counter />
-</Suspense>
+<Counter />
 
 Wow! That's a button rendered in Markdown 😮
-
-We're importing the button `<Counter>`, which is lazy loaded using
-`React.lazy()`. And we can wrap our lazy loaded component in `Suspense` too!
-
-```jsx
-<Suspense fallback={<p>loading button...</p>}>
-  <Counter />
-</Suspense>
-```
 
 It took a little bit of effort to set up MDX for blog posts, but [the Gatsby
 docs](https://www.gatsbyjs.org/docs/mdx/) are well-written and it's pretty
