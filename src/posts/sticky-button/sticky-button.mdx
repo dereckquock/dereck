@@ -1,0 +1,55 @@
+---
+slug: sticky-button
+title: Using Sticky Positioning
+description: We used sticky positioning for our call-to-action button
+image: ./featured.jpg
+imageAuthor: Jean-Philippe Delbergh
+imageAuthorUrl: https://unsplash.com/@jipy32
+date: 2020-05-01
+keywords:
+  - CSS
+  - Sticky positioning
+---
+
+🛒 I'm on the Checkout web team at PayPal and we're working on the next generation of
+our checkout experience. The review page can be fairly content-heavy if the
+customer is eligible for the many features that we display on our single-page
+app.
+
+This is how a checkout review page looks for my account:
+
+![Checkout review page](./long.png)
+
+As you can see, there's a lot on the page. And this isn't even including other
+features like currency conversion, applying for PayPal Credit, or if I have some
+PayPal balance and want to apply that to the transaction.
+
+The **Continue** button to continue checking out is all the way at the bottom. And
+if the customer is checking out in a smaller viewport on their phone, they'd
+have to scroll all the way down to continue. Adding any friction during a
+checkout experience is asking for lower conversion. Enter `position: sticky`.
+
+🎉🕸
+
+Not only is [sticky
+positioning](https://developer.mozilla.org/en-US/docs/Web/CSS/position#Sticky_positioning)
+great for heading in a list, but it's the perfect use case for our **Continue** button.
+
+<Suspense fallback={<p>loading...</p>}>
+  <StickyButton />
+</Suspense>
+
+[![Edit this on CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/sticky-positioning-v7x6j?fontsize=14&hidenavigation=1&theme=dark)
+
+Notice how the button stays stuck to the bottom until more content under it
+pushes is up 🔥 and all we had to do was add some CSS:
+
+```CSS
+.sticky {
+  position: sticky;
+  bottom: 0;
+}
+```
+
+Now the customer doesn't necessarily _need_ to scroll all the way down if they
+want to check out quickly.

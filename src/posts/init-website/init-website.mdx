@@ -1,0 +1,76 @@
+---
+slug: init-website
+title: Finally Building a Personal Website
+description: A summary of my experience building a personal website
+image: ./featured.jpg
+date: 2020-04-29
+keywords:
+  - Javascript
+  - Gatsby
+  - MDX
+---
+
+😅 It took me forever, but I finally got around to making my personal website.
+
+How embarrassing... 🤦‍♂️
+
+## 🥞 Stack
+
+I decided to use Gatsby + MDX to build this thing because I love how Gatsby
+makes it easy to build fast static sites. With the combination of MDX, it's
+super easy to write content 📝. I already write most things in Markdown, so MDX
+made it simple and easy to work with. MDX also integrates seamlessly with React
+components! So you can import React components right into your Markdown 🔥
+
+<Suspense fallback={<p>loading button...</p>}>
+  <Counter />
+</Suspense>
+
+Wow! That's a button rendered in Markdown 😮
+
+We're importing the button `<Counter>`, which is lazy loaded using
+`React.lazy()`. And we can wrap our lazy loaded component in `Suspense` too!
+
+```jsx
+<Suspense fallback={<p>loading button...</p>}>
+  <Counter />
+</Suspense>
+```
+
+It took a little bit of effort to set up MDX for blog posts, but [the Gatsby
+docs](https://www.gatsbyjs.org/docs/mdx/) are well-written and it's pretty
+straight forward if you follow everything step-by-step. If you follow the steps
+for [programmatically creating
+pages](https://www.gatsbyjs.org/docs/mdx/programmatically-creating-pages/), you
+can get a blog up and running pretty quickly.
+
+I'm using
+[`prism-react-renderer`](https://github.com/FormidableLabs/prism-react-renderer)
+to syntax highlight code snippets. [The MDX
+docs](https://mdxjs.com/guides/syntax-highlighting) give a good overview of how
+to integrate and customize how code syntax highlighting works. For highlighting
+a specific line, you can use the `metastring` prop, which is anything that comes
+after the language:
+
+````md
+```jsx metastring
+<Component />
+```
+````
+
+So something like this would highlight the first line:
+
+````md
+```jsx 1
+<Component />
+```
+````
+
+I used Gatsby to build our [wedding
+website](https://github.com/dereckquock/derteems) and it was so much fun to be
+able to ship a lightning-fast app that's highly customizable. And because we
+were showing so many images, the built-in image optimization and performance of
+[gatsby-image](https://www.gatsbyjs.org/packages/gatsby-image/) was a huge win.
+
+This was a fun experience and I'm always learning 👨‍🎓 and I'm excited to
+continue building my brand 🔥

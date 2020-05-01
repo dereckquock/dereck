@@ -1,0 +1,97 @@
+---
+slug: react-native-looping-opacity-animation
+title: Looping Opacity Animation in React Native
+description: An example of how you can loop opacity animation in React Native
+image: ./featured.png
+date: 2020-04-30
+keywords:
+  - Javascript
+  - React Native
+  - reanimated
+  - redash
+---
+
+I needed to animate a red dot similar to how a recording light flashes. Kinda
+like this 👇
+
+<Suspense fallback={<p>loading...</p>}>
+  <BlinkingDot />
+</Suspense>
+
+CSS Keyframes make it as easy as pie 🥧
+
+```CSS
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.blinking-dot {
+  width: 30px;
+  height: 30px;
+  background: rgba(179, 0, 0, 0.8);
+  border-radius: 15px;
+  animation: blink 1s infinite;
+}
+```
+
+In React Native, it's not as easy. Any animation usually has to be done using
+[`react-native-reanimated`](https://github.com/software-mansion/react-native-reanimated),
+which is a powerful tool, once you figure out how to declaratively compose
+animations. With the help of
+[`react-native-redash`](https://github.com/wcandillon/react-native-redash) from
+William Candillon, who does the [_Can it be done in React Native_ videos on
+YouTube](https://www.youtube.com/user/wcandill). He is a React Native wizard and
+can clone a lot of cool native app functionality in React Native.
+
+A blinking dot in React Native looks something like this:
+
+```jsx
+import Svg, { Circle } from 'react-native-svg';
+import Animated, { Easing } from 'react-native-reanimated';
+import { loop, mix } from 'react-native-redash';
+
+const { set, useCode, Value } = Animated;
+
+function BlinkingDot() {
+  const animation = new Value(0);
+
+  useCode(
+    () =>
+      set(
+        animation,
+        loop({
+          duration: 1000,
+          easing: Easing.inOut(Easing.ease),
+          // the animation goes from 0 to 1 and then from 1 to 0 in the next cycle
+          boomerang: true,
+          autoStart: true,
+        })
+      ),
+    [animation]
+  );
+
+  // Interpolate the node from 0 to 1 without clamping
+  const opacity = mix(animation, 0.1, 1);
+
+  return (
+    <Animated.View style={{ opacity }}>
+      <Svg style={styles.circle} viewBox="0 0 100 100">
+        <Circle cx="50" cy="50" r="50" fill={Colors.red} fillOpacity="1" />
+      </Svg>
+    </Animated.View>
+  );
+}
+```
+
+The [`loop()`
+function](https://wcandillon.github.io/react-native-redash/run-animations#loop)
+makes this easier to do and with the `boomerang` option set to `true` the
+opacity will bounce back and forth from 0 to 1 🦘

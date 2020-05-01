@@ -1,24 +1,28 @@
 {
-  "name": "gatsby-starter-mdx-basic",
-  "description": "Gatsby starter MDX basic",
+  "name": "dereckquock",
+  "description": "Dereck's personal site",
   "version": "1.0.0",
-  "author": "Chris Biscardi <chris@christopherbiscardi.com>",
+  "author": "Dereck Quock <djquock@gmail.com>",
   "dependencies": {
     "@mdx-js/mdx": "^1.1.5",
     "@mdx-js/react": "^1.1.5",
     "gatsby": "^2.13.50",
     "gatsby-image": "^2.2.8",
+    "gatsby-plugin-dark-mode": "^1.1.1",
     "gatsby-plugin-manifest": "^2.2.4",
     "gatsby-plugin-mdx": "^1.0.0",
-    "gatsby-plugin-offline": "^2.2.4",
+    "gatsby-plugin-offline": "^3.2.0",
     "gatsby-plugin-react-helmet": "^3.1.3",
     "gatsby-plugin-sharp": "^2.2.9",
+    "gatsby-remark-autolink-headers": "^2.3.0",
+    "gatsby-remark-images": "^3.3.0",
     "gatsby-source-filesystem": "^2.1.8",
     "gatsby-transformer-sharp": "^2.2.5",
-    "prop-types": "^15.7.2",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-helmet": "^5.2.1"
+    "prism-react-renderer": "^1.1.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-helmet": "^6.0.0",
+    "typeface-fira-code": "^1.1.4"
   },
   "keywords": [
     "gatsby"
@@ -29,13 +33,30 @@
     "develop": "gatsby develop",
     "start": "npm run develop",
     "format": "prettier --write \"src/**/*.js\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint . --ext js,mdx"
   },
   "devDependencies": {
-    "prettier": "^1.18.2"
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-mdx": "^1.6.9",
+    "eslint-plugin-react": "^7.19.0",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.0",
+    "prettier": "^2.0.5"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/christopherbiscardi/gatsby-starter-mdx-basic"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,mdx}": "eslint --cache --fix",
+    "*.js": "prettier --write"
   }
 }
