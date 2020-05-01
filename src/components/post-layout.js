@@ -33,7 +33,7 @@ export default function PageTemplate({ data: { mdx } }) {
       <article>
         <h1>{title}</h1>
         <div
-          style={{
+          css={{
             marginTop: '-1.25rem',
             marginBottom: '1.5rem',
             fontSize: '0.75rem',
@@ -44,10 +44,10 @@ export default function PageTemplate({ data: { mdx } }) {
           {timeToRead && <span> • {timeToRead} min read</span>}
         </div>
         {fluid && (
-          <div style={{ marginBottom: '1rem' }}>
-            <Image fluid={fluid} style={{ borderRadius: 8 }} />
+          <div css={{ marginBottom: '1rem' }}>
+            <Image fluid={fluid} css={{ borderRadius: 8 }} />
             {imageAuthor && (
-              <div style={{ fontSize: '0.75rem', textAlign: 'right' }}>
+              <div css={{ fontSize: '0.75rem', textAlign: 'right' }}>
                 Photo by{' '}
                 <a
                   href={imageAuthorUrl}

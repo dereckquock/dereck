@@ -22,7 +22,7 @@ function Avatar() {
   return (
     <Image
       fluid={fluid}
-      style={{
+      css={{
         width: '6rem',
         height: '6rem',
         flexShrink: 0,

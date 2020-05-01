@@ -3,7 +3,7 @@ import React from 'react';
 function StickyButton() {
   return (
     <div
-      style={{
+      css={{
         height: 300,
         marginBottom: '0.5rem',
         overflow: 'scroll',
@@ -48,7 +48,7 @@ function StickyButton() {
       </p>
 
       <div
-        style={{
+        css={{
           padding: '1rem',
           marginBottom: '1rem',
           position: 'sticky',
@@ -57,7 +57,7 @@ function StickyButton() {
           backdropFilter: 'blur(2px)',
         }}
       >
-        <button style={{ width: '100%', padding: '10px 12px' }}>
+        <button css={{ width: '100%', padding: '10px 12px' }}>
           Sticky Button
         </button>
       </div>

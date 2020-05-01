@@ -1,7 +1,6 @@
 :root {
   --background: #f8f5f0;
   --text: #25282c;
-  --black: #000000;
   --gold: #746136;
 }
 .dark {
@@ -614,33 +613,6 @@ pre code {
   }
 }
 
-.dark-mode-toggle {
-  transform: scale(1);
-  transition: transform 0.25s cubic-bezier(0, -0.55, 0.25, 2) 0s;
-}
-.dark-mode-toggle:hover {
-  transform: scale(1.2) rotateZ(-30deg);
-}
-
-.social {
-  margin-left: 1rem;
-}
-.social svg {
-  transform: scale(1);
-  transition: transform 0.25s cubic-bezier(0, -0.55, 0.25, 2) 0s;
-}
-.social:hover svg {
-  transform: scale(1.2);
-}
-
-.post .gatsby-image-wrapper {
-  transform: scale(1);
-  transition: transform 0.25s cubic-bezier(0, -0.55, 0.25, 2) 0s;
-}
-.post:hover .gatsby-image-wrapper {
-  transform: scale(1.05);
-}
-
 /* gatsby-remark-autolink-headers */
 .header-hash-link {
   position: absolute;
@@ -661,28 +633,7 @@ h4:hover .header-hash-link {
   fill: var(--text);
 }
 
+/* images used in MDX */
 .gatsby-resp-image-image {
   border-radius: 8px;
-}
-
-/* blinking dot animation for react-native-looping-opacity-animation */
-@keyframes blink {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-.blinking-dot {
-  width: 30px;
-  height: 30px;
-  margin-bottom: 1.5rem;
-  background: rgba(179, 0, 0, 0.8);
-  border-radius: 15px;
-  box-shadow: 0 0 4px rgba(179, 0, 0, 0.8);
-  animation: blink 1s infinite;
 }

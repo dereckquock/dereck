@@ -3,9 +3,9 @@ import Avatar from '../components/avatar';
 
 function Heading() {
   return (
-    <h1 style={{ display: 'flex', alignItems: 'center' }}>
+    <h1 css={{ display: 'flex', alignItems: 'center' }}>
       <Avatar />
-      <span style={{ marginLeft: '1.35rem' }}>{`Hi 👋 I'm Dereck Quock`}</span>
+      <span css={{ marginLeft: '1.35rem' }}>{`Hi 👋 I'm Dereck Quock`}</span>
     </h1>
   );
 }

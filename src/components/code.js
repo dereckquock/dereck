@@ -17,7 +17,7 @@ const Code = ({ children, className, metastring = '' }) => {
         return (
           <pre
             className={className}
-            style={{
+            css={{
               ...style,
               margin: '1em 0',
               padding: '1rem 0',
@@ -31,7 +31,7 @@ const Code = ({ children, className, metastring = '' }) => {
                 <div
                   key={i}
                   {...getLineProps({ line, key: i })}
-                  style={{
+                  css={{
                     padding: '0 0.5rem',
                     marginRight: shouldHighlightLine ? '-0.5rem' : 0,
                     borderLeft: shouldHighlightLine ? '2px solid' : '0',

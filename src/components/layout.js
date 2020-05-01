@@ -21,7 +21,7 @@ const Layout = ({ path, children }) => {
         <main className="contents">
           <Header siteTitle={data.site.siteMetadata.title} path={path} />
           <div
-            style={{
+            css={{
               margin: '0 auto',
               maxWidth: 800,
               padding: '0 1.5rem 1.45rem',

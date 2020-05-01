@@ -42,36 +42,44 @@ function App(props) {
       <SEO title="Home" keywords={['dereck', 'quock', 'dereck quock']} />
 
       <Heading />
-      <p style={{ maxWidth: '45rem' }}>
+      <p css={{ maxWidth: '45rem' }}>
         I do full stack development and I love building things that help people.{' '}
         <Link to="/about">Find out more about me here</Link>. 🍻🍻🍻 Cheers!
       </p>
       <hr />
-      <div style={{ margin: 'auto', textAlign: 'center' }}>
+      <div css={{ margin: 'auto', textAlign: 'center' }}>
         {edges.map(({ node: { timeToRead, frontmatter } }) => {
           const { slug, image, title, description, date } = frontmatter;
           const { childImageSharp: { fluid } = {} } = image || {};
 
           return (
-            <div key={slug} style={{ padding: '1.5rem 0 1rem' }}>
-              <h3 style={{ marginBottom: 0 }}>
+            <div key={slug} css={{ padding: '1.5rem 0 1rem' }}>
+              <h3 css={{ marginBottom: 0 }}>
                 <Link
                   to={`/${slug}`}
                   className="post"
-                  style={{
+                  css={{
                     display: 'inline-block',
                     fontWeight: 600,
                     textDecoration: 'none',
+
+                    ':hover .post-image': {
+                      transform: 'scale(1.05)',
+                    },
                   }}
                 >
                   {fluid && (
                     <Image
                       fluid={fluid}
-                      style={{
+                      className="post-image"
+                      css={{
                         maxWidth: '20rem',
                         margin: 'auto',
                         marginBottom: '1rem',
                         borderRadius: 8,
+                        transform: 'scale(1)',
+                        transition:
+                          'transform 0.25s cubic-bezier(0, -0.55, 0.25, 2) 0s',
                       }}
                     />
                   )}
@@ -79,9 +87,9 @@ function App(props) {
                 </Link>
               </h3>
               {description && (
-                <p style={{ margin: '0.333rem 0 0' }}>{description}</p>
+                <p css={{ margin: '0.333rem 0 0' }}>{description}</p>
               )}
-              <div style={{ fontSize: '0.75rem', fontStyle: 'italic' }}>
+              <div css={{ fontSize: '0.75rem', fontStyle: 'italic' }}>
                 <time>{date}</time>
                 {timeToRead && <span> • {timeToRead} min read</span>}
               </div>
