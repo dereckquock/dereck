@@ -43,7 +43,7 @@ function App(props) {
 
       <Heading />
       <p style={{ maxWidth: '45rem' }}>
-        I do full stack development and I love building things that help people.
+        I do full stack development and I love building things that help people.{' '}
         <Link to="/about">Find out more about me here</Link>. 🍻🍻🍻 Cheers!
       </p>
       <hr />

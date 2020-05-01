@@ -19,45 +19,57 @@ const Header = ({ siteTitle, path }) => {
               maxWidth: 800,
               padding: '1rem',
               display: 'flex',
+              alignItems: 'center',
               justifyContent: 'space-between',
             }}
           >
-            <h1
+            <Link
+              to="/"
               style={{
-                margin: 0,
+                height: '2rem',
                 display: 'flex',
                 alignItems: 'center',
-                fontSize: '1.125rem',
+                textDecoration: 'none',
               }}
             >
-              <Link
-                to="/"
+              <h1
                 style={{
+                  margin: 0,
+                  fontSize: '1.125rem',
                   color: 'var(--text)',
-                  textDecoration: 'none',
                 }}
               >
                 {siteTitle}
-              </Link>
-            </h1>
-            <nav style={{ fontSize: '1rem' }}>
+              </h1>
+            </Link>
+            <nav
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+              }}
+            >
               <Link
                 to="/about"
                 style={{
+                  height: '2rem',
                   marginRight: '0.5rem',
-                  padding: '0.2rem 0.5rem',
+                  padding: '0 0.5rem',
                   display: 'inline-block',
+                  lineHeight: '1.778rem',
                   color: 'var(--text)',
                   textDecoration: 'none',
-                  borderBottom: path.includes('/about')
-                    ? '2px solid var(--text)'
-                    : '0',
+                  textShadow: path.includes('/about') ? '0 0 4px' : '0',
                 }}
               >
                 about
               </Link>
               <button
+                className="dark-mode-toggle"
                 style={{
+                  width: '2rem',
+                  height: '2rem',
+                  fontSize: '1.111rem',
+                  lineHeight: '1.778rem',
                   border: 0,
                   background: 'transparent',
                   cursor: 'pointer',

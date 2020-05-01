@@ -630,6 +630,14 @@ pre tt:after {
   }
 }
 
+.dark-mode-toggle {
+  transform: scale(1);
+  transition: transform 0.25s cubic-bezier(0, -0.55, 0.25, 2) 0s;
+}
+.dark-mode-toggle:hover {
+  transform: scale(1.2) rotateZ(-30deg);
+}
+
 .social {
   margin-left: 1rem;
 }
