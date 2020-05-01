@@ -1,6 +1,7 @@
 import { Link } from 'gatsby';
 import React from 'react';
 import { ThemeToggler } from 'gatsby-plugin-dark-mode';
+import VisuallyHidden from '@reach/visually-hidden';
 
 const Header = ({ siteTitle, path }) => {
   return (
@@ -63,21 +64,34 @@ const Header = ({ siteTitle, path }) => {
               >
                 about
               </Link>
-              <button
+              <label
+                htmlFor="dark-mode-toggle"
                 className="dark-mode-toggle"
                 style={{
                   width: '2rem',
                   height: '2rem',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
                   fontSize: '1.111rem',
                   lineHeight: '1.778rem',
                   border: 0,
                   background: 'transparent',
                   cursor: 'pointer',
                 }}
-                onClick={() => toggleTheme(theme === 'dark' ? 'light' : 'dark')}
               >
-                {theme === 'dark' ? '🔆' : '🌙'}
-              </button>
+                <VisuallyHidden>
+                  <input
+                    type="checkbox"
+                    id="dark-mode-toggle"
+                    value={theme === 'dark'}
+                    onChange={() =>
+                      toggleTheme(theme === 'dark' ? 'light' : 'dark')
+                    }
+                  />
+                </VisuallyHidden>
+                <span>{theme === 'dark' ? '🔆' : '🌙'}</span>
+              </label>
             </nav>
           </header>
         </div>
