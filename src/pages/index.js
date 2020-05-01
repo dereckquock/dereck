@@ -44,7 +44,7 @@ function App(props) {
       <Heading />
       <p style={{ maxWidth: '45rem' }}>
         I do full stack development and I love building things that help people.
-        Find out more about me <Link to="/about">here</Link>. 🍻🍻🍻 Cheers!
+        <Link to="/about">Find out more about me here</Link>. 🍻🍻🍻 Cheers!
       </p>
       <hr />
       <div style={{ margin: 'auto', textAlign: 'center' }}>

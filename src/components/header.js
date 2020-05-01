@@ -44,7 +44,9 @@ const Header = ({ siteTitle, path }) => {
               <Link
                 to="/about"
                 style={{
+                  marginRight: '0.5rem',
                   padding: '0.2rem 0.5rem',
+                  display: 'inline-block',
                   color: 'var(--text)',
                   textDecoration: 'none',
                   borderBottom: path.includes('/about')
