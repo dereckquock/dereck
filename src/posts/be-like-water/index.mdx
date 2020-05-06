@@ -1,0 +1,189 @@
+---
+slug: be-like-water
+title: Be Like Water
+description: Learn to keep it simple, adapt to your environment and focus on the end goal
+image: ./featured.jpg
+imageAuthor: kazuend
+imageAuthorUrl: https://unsplash.com/@kazuend
+date: 2020-05-05
+keywords:
+  - programming
+  - coding
+  - simple
+  - adapt
+  - focus
+---
+
+import { BasicModal, ComplexModal, SimplerModal } from './modal';
+
+<q>
+  The waters of a river adapt themselves to whatever route proves possible, but
+  never forgets its one objective: the sea.
+</q>
+<div style="margin-bottom: 1.5rem; text-align: right">
+  <small>-- Paulo Coelho, Maktub</small>
+</div>
+
+Many times, we overcomplicate things. It always reminds me of [Kent's post about AHA
+programming](https://kentcdodds.com/blog/aha-programming), which explains that we should Avoid Hasty Abstractions. We
+make things complicated by trying to support a million different use cases or prematurely optimizing when it's not
+necessary.
+
+My previous manager once told me that we should build for the lowest common denominator. In other words, we shouldn't
+spend all of our time covering every single edge case but instead, focus on learning what's best for the customer so we
+can deliver experiences that the majority of customers want. Let me expand a little more on what I mean.
+
+## Let's keep it basic
+
+Take a Modal for example. Let's pull in the [Reach UI](https://reacttraining.com/reach-ui/dialog/) dialog component:
+
+```jsx
+import React from 'react';
+import { Dialog } from '@reach/dialog';
+import '@reach/dialog/styles.css';
+
+function Modal() {
+  const [showDialog, setShowDialog] = React.useState(false);
+  const open = () => setShowDialog(true);
+  const close = () => setShowDialog(false);
+
+  return (
+    <div style={{ marginBottom: '1rem' }}>
+      <button onClick={open}>Show Dialog</button>
+      <Dialog
+        aria-label="basic"
+        style={{ color: '#666666' }}
+        isOpen={showDialog}
+        onDismiss={close}
+      >
+        <p>This is a basic modal</p>
+        <button onClick={close}>OK</button>
+      </Dialog>
+    </div>
+  );
+}
+```
+
+<BasicModal />
+
+Awesome 🔥 we have an accessible modal!
+
+## A more complex modal
+
+Now Product and UX want us to have a customizable modal header with a title, a logo, a close button, and we handle
+different modal sizes. So now we have something like this:
+
+```jsx
+import { Overlay, ModalContent, Header, Logo, Close } from './lib';
+
+function Modal({
+  showDialog,
+  setShowDialog,
+  title,
+  hideHeader = false,
+  hideLogo = false,
+  hideCloseButton = false,
+  preventCloseOnESC = false,
+  type = 'full',
+  children,
+}) {
+  const close = () => {
+    if (!preventCloseOnESC) {
+      setShowDialog(false);
+    }
+  };
+
+  return (
+    <Overlay isOpen={showDialog} onDismiss={close}>
+      <ModalContent aria-label="complex" type={type}>
+        <article style={{ padding: '1rem' }}>
+          {!hideHeader && (
+            <Header>
+              <h2 style={{ margin: 0 }}>
+                {!hideLogo && <Logo />}
+                {title}
+              </h2>
+              {!hideCloseButton && <Close onClick={close}>×</Close>}
+            </Header>
+          )}
+          {children}
+        </article>
+      </ModalContent>
+    </Overlay>
+  );
+}
+```
+
+<ComplexModal />
+
+Now our modal has a bunch of conditional logic and there are multiple combinations of flags that determine our UI. What
+if we want to render a different header on mobile? What if we add a complex footer too? This can get hard to manage and
+maintain with every feature request that comes in. There's got to be a better way to have a flexible and extensible
+modal component. Luckily, React Hooks allows you to compose logic together and we can export components that consumers of
+our Modal can compose for themselves.
+
+## Let's make it more simple
+
+We can extract control props to a custom hook and export the modal-related styled components so that other developers
+can compose them together.
+
+This is much simpler and there's no conditional logic:
+
+```jsx
+import { Overlay, ModalContent, Header, Logo, useModal } from './lib';
+
+export function Modal() {
+  const { showDialog, openDialog, closeDialog } = useModal();
+
+  return (
+    <div style={{ marginBottom: '1rem' }}>
+      <button onClick={openDialog}>Show Simpler Modal</button>
+      <Overlay isOpen={showDialog}>
+        <ModalContent aria-label="basic" type="3/4">
+          <article style={{ padding: '1rem' }}>
+            <Header>
+              <h2 style={{ margin: 0 }}>
+                <Logo /> Modal Title
+              </h2>
+            </Header>
+            <p>Modal body</p>
+            <button onClick={closeDialog}>OK</button>
+          </article>
+        </ModalContent>
+      </Overlay>
+    </div>
+  );
+}
+```
+
+<SimplerModal />
+
+This is great! 🐯 It's simpler and much more declarative and doesn't include unnecessary abstraction. By building this
+Modal to compose logic and other components together, it's easy to reason about and understand what's going on. We don't
+have the complexity and cognitive overhead of trying to understand everything that this modal does. It makes it easier
+to maintain and we don't have to click through multiple layers of components to get to a definition.
+
+You can check out this codesandbox for yourself 👍
+
+[![Edit Modals](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/modals-o4x7f?fontsize=14&hidenavigation=1&module=%2Fsrc%2FApp.js&theme=dark)
+
+## Adapt to changes
+
+This is also flexible enough that if I wanted to add a close button to the header, I could just pull it in from `./lib`
+and add the component directly in the header. And if I wanted to change the header altogether, I could just swap it out.
+In this way, we're adapting to changes that come in and not over abstracting things. We're giving control to the
+developer that's using this modal so they can compose things together for their specific use case.
+
+We're also developing for deletability. If we did want to change the whole header, we should be confident in pulling it
+out. I'm definitely an advocate for code artisanship, but I also feel like we shouldn't get too attached to our code.
+Just because someone refactors or deletes some code that you've written doesn't mean you should take it personally. Be
+like water. Go with the flow and adapt to the ever-changing technology that we work with.
+
+## Focus on the end goal
+
+Now that we're not focusing on the nitty-gritty details of supporting every edge case, we can focus on our end goal:
+delighting users with a great experience.
+
+Be the waters of a river and focus on getting to the sea. 🌊
+
+🌮

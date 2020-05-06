@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import { graphql, Link } from 'gatsby';
 import Image from 'gatsby-image';
 import { MDXProvider } from '@mdx-js/react';
@@ -6,19 +6,12 @@ import { MDXRenderer } from 'gatsby-plugin-mdx';
 import Layout from './layout';
 import SEO from './seo';
 import Code from './code';
-import Counter from './counter';
-import BlinkingDot from './blinking-dot';
-import StickyButton from './sticky-button';
 
 // Provide common components here so that they're globally available
 const components = {
-  BlinkingDot,
   code: Code,
-  Counter,
   Link,
   pre: (props) => <div {...props} />,
-  StickyButton,
-  Suspense,
 };
 
 export default function PageTemplate({ data: { mdx } }) {

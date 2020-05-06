@@ -11,26 +11,23 @@ description: Some projects that I've been working on
 
 ![Wedding website](../images/teemquock.png)
 
-Wedding website built for mobile with Gatsby that showed wedding information,
-displayed our engagement photos and allowed guests to RSVP.
+Wedding website built for mobile with Gatsby that showed wedding information, displayed our engagement photos and
+allowed guests to RSVP.
 
 #### Tech
 
-- Gatsby
-- [gatsby-source-google-sheets](https://www.gatsbyjs.org/packages/gatsby-source-google-sheets/)
+- Gatsby - [gatsby-source-google-sheets](https://www.gatsbyjs.org/packages/gatsby-source-google-sheets/)
   to use Google Sheets as a database for RSVP data
-- [Reach UI](https://reacttraining.com/reach-ui/)
-- [Netlify Forms](https://docs.netlify.com/forms/setup/) for RSVP submissions
+- [Reach UI](https://reacttraining.com/reach-ui/) - [Netlify Forms](https://docs.netlify.com/forms/setup/) for RSVP
+  submissions
 
-  Handling RSVP submissions was fairly difficult because of the variable amount
-  of people that could RSVP for a certain group. For example, some of our
-  friends are single and didn't have a plus-one and some of our family members
-  had kids that were also attending.
+  Handling RSVP submissions was fairly difficult because of the variable amount of people that could RSVP for a certain
+  group. For example, some of our friends are single and didn't have a plus-one and some of our family members had kids
+  that were also attending.
 
-  I had to fetch the people that were associated with the person that
-  was RSVPing and based on the form input, I would reduce the data down into an
-  object that tells me if a specific person was going to attend and their
-  protein preference:
+  I had to fetch the people that were associated with the person that was RSVPing and based on the form input, I would
+  reduce the data down into an object that tells me if a specific person was going to attend and their protein
+  preference:
 
   ```javascript
   function getRsvpData(data) {
@@ -44,22 +41,20 @@ displayed our engagement photos and allowed guests to RSVP.
   }
   ```
 
-  I wish that [Netlify Functions](https://docs.netlify.com/functions/overview/)
-  were available at the time because I would have definitely used that 😅
+  I wish that [Netlify Functions](https://docs.netlify.com/functions/overview/) were available at the time because I
+  would have definitely used that 😅
 
 - [React Context]() for having a fun dark mode
 
   [Kent's post about how to use React Context
-  effectively](https://kentcdodds.com/blog/how-to-use-react-context-effectively)
-  really helped me execute this easily 🔥
+  effectively](https://kentcdodds.com/blog/how-to-use-react-context-effectively) really helped me execute this easily 🔥
 
 ### 🏈 [NFL Stadiums VR blog](https://github.com/dereckquock/treydos)
 
-React 360 VR blog that shows a more immersive experience of different NFL
-stadiums that we've visited. We're utilizing our 360 camera and wanted to create
-a React 360 tour app so others can get a feel for the different stadiums and
-even plan to visit themselves. Our journey to visit all the stadiums is still a
-work in progress and I'll rebuild this sometime soon.
+React 360 VR blog that shows a more immersive experience of different NFL stadiums that we've visited. We're utilizing
+our 360 camera and wanted to create a React 360 tour app so others can get a feel for the different stadiums and even
+plan to visit themselves. Our journey to visit all the stadiums is still a work in progress and I'll rebuild this
+sometime soon.
 
 #### Tech
 
@@ -71,16 +66,14 @@ work in progress and I'll rebuild this sometime soon.
 
 ![Echo App](../images/echo-app.png)
 
-App is built with React Native and allows people to be able to interact with the
-Church.
+App is built with React Native and allows people to be able to interact with the Church.
 
 #### Tech
 
 - [React Native](https://reactnative.dev/)
 - [Expo](https://expo.io/)
 - [React Navigation](https://reactnavigation.org/)
-- [react-native-reanimated](https://github.com/software-mansion/react-native-reanimated)
-  & [react-native-redash](https://github.com/wcandillon/react-native-redash)
+- [react-native-reanimated](https://github.com/software-mansion/react-native-reanimated) & [react-native-redash](https://github.com/wcandillon/react-native-redash)
 - [React Native Storybook](https://storybook.js.org/docs/guides/guide-react-native/)
 
 ### 👥 [Echo Groups](https://groups.echo.church/)
@@ -99,8 +92,8 @@ Web app enables people to discover and join small groups.
 
 ### 📱 React Native app that enables automatic expense reporting
 
-This was a hacked version of the PayPal app that allows a user to automatically
-create an expense report from a transaction.
+This was a hacked version of the PayPal app that allows a user to automatically create an expense report from a
+transaction.
 
 #### Tech
 
@@ -110,15 +103,12 @@ create an expense report from a transaction.
 
 ### 🧾 Invoicing app that uses image processing to prefill invoice data
 
-App that used an item image to prefill the form used to create an invoice. After
-filling out the invoice data, the seller is presented with different outputs for sending
-an invoice: email the invoice, share an invoice link, scan a QR code, or share in
-Facebook Messenger. This allowed the seller to create and send the invoice in
-whatever specific context that they were in, creating less friction when selling
-something.
+App that used an item image to prefill the form used to create an invoice. After filling out the invoice data, the
+seller is presented with different outputs for sending an invoice: email the invoice, share an invoice link, scan a QR
+code, or share in Facebook Messenger. This allowed the seller to create and send the invoice in whatever specific
+context that they were in, creating less friction when selling something.
 
 #### Tech
 
 - React
-- [Google Cloud Vision API](https://cloud.google.com/vision) to process an item
-  image
+- [Google Cloud Vision API](https://cloud.google.com/vision) to process an item image

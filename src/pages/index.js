@@ -22,7 +22,7 @@ function App(props) {
               slug
               image {
                 childImageSharp {
-                  fluid(maxWidth: 300) {
+                  fluid(maxWidth: 400) {
                     ...GatsbyImageSharpFluid
                   }
                 }
@@ -59,6 +59,7 @@ function App(props) {
                   to={`/${slug}`}
                   className="post"
                   css={{
+                    width: '100%',
                     display: 'inline-block',
                     fontWeight: 600,
                     textDecoration: 'none',
@@ -87,7 +88,9 @@ function App(props) {
                 </Link>
               </h3>
               {description && (
-                <p css={{ margin: '0.333rem 0 0' }}>{description}</p>
+                <p css={{ maxWidth: '26rem', margin: '0.333rem auto 0' }}>
+                  {description}
+                </p>
               )}
               <div css={{ fontSize: '0.75rem', fontStyle: 'italic' }}>
                 <time>{date}</time>
