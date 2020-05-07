@@ -3,7 +3,7 @@ import { DialogOverlay, DialogContent } from '@reach/dialog';
 import styled from '@emotion/styled';
 import facepaint from 'facepaint';
 
-const mediaQueries = facepaint([
+const mq = facepaint([
   '@media(min-width: 576px)',
   '@media(min-width: 768px)',
   '@media(min-width: 992px)',
@@ -31,7 +31,7 @@ export const Overlay = styled(DialogOverlay)`
 
 export const ModalContent = styled(DialogContent)`
   ${(props) =>
-    mediaQueries({
+    mq({
       width: ['100vw', '70vw', '50vw'],
       height: getHeight(props.type),
       margin: '0 auto',

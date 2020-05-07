@@ -1,0 +1,110 @@
+---
+slug: facepaint
+title: Write Media Queries Once, Use Everywhere
+description: Using emotion and facepaint, we can define breakpoints and reuse media queries
+image: ./featured.jpg
+imageAuthor: Pranav Kumar Jain
+imageAuthorUrl: https://unsplash.com/@peejayvisual
+date: 2020-05-07
+keywords:
+  - programming
+  - coding
+  - Javascript
+  - React
+  - css-in-js
+  - emotion
+  - facepaint
+  - media queries
+---
+
+Media queries are difficult to manage if you don't have a single place in your app where you have them defined. I've
+worked in many apps where media queries are scattered throughout CSS and components and it's nearly impossible to
+maintain.
+
+I'm using [emotion](https://emotion.sh) and I was seeing how to implement media queries on this website. I stumbled
+upon using [facepaint](https://github.com/emotion-js/facepaint) to define reusable media queries.
+
+Breakpoints are defined like:
+
+```js
+import facepaint from 'facepaint';
+
+const mq = facepaint([
+  '@media(min-width: 420px)',
+  '@media(min-width: 920px)',
+  '@media(min-width: 1120px)',
+]);
+```
+
+This returns a function that you wrap around your object styles. 💁 Remember, facepaint only works with object styles!
+
+Then you can use `mq` to generate media queries for a specific property:
+
+```js
+mq({ color: ['red', 'green', 'blue'] });
+```
+
+generates this CSS 👇
+
+```json
+{
+  "color": "red",
+  "@media(min-width: 420px)": {
+    "color": "green"
+  },
+  "@media(min-width: 920px)": {
+    "color": "blue"
+  }
+}
+```
+
+Awesome!! 🔥 The array of colors map to the array of media query breakpoints that we passed into `facepaint`.
+
+But what if we want to use `facepaint` with styled components? 🧐
+
+Just use template strings!
+
+```js
+const Block = styled.div`
+  ${mq({ color: ['red', 'green', 'blue'] })}
+`;
+```
+
+Now we can use our `<Block>` styled component with baked-in media queries and we don't have to redefine
+`@media(min-width: 420px)` all over our app. 💥 This is a massive win.
+
+And we don't need to specify each breakpoint. We could have just used `mq({ color: ['red', 'green'] })` to only cover
+the first breakpoint.
+
+If you want to skip that first breakpoint and only cover the second one, you can use `mq({ color: ['red', null, 'green'] })` because `boolean`, `undefined`, and `null` values are ignored.
+
+A lot of the time, we need to have [conditional styling based on component
+props](https://emotion.sh/docs/styled#changing-based-on-props). This isn't too bad:
+
+```js
+const Block = styled.div((props) => {
+  const { isReversed } = props;
+  const colors = ['red', 'green', 'blue'];
+
+  return mq({
+    backgroundColor: isReversed ? colors.reverse() : colors,
+    width: ['100%', '70%', '50%'],
+    height: '10vh',
+    margin: 'auto',
+    transition: 'all 0.3s ease',
+  });
+});
+
+<Block isReversed={true} />;
+```
+
+Based on the `isReversed` prop, we can reverse the array of colors, or the values at each breakpoint that we previously
+defined.
+
+You can check out this codesandbox for yourself 👍
+
+[![Edit facepaint with styled components +
+props](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/facepaint-with-styled-components-props-9isof?fontsize=14&hidenavigation=1&theme=dark)
+
+Defining breakpoints and reusing media queries across apps is a lot easier with `emotion` and `facepaint`. Our apps will
+be easier to maintain and we can be consistent in how we support viewports of all sizes.

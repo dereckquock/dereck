@@ -21,10 +21,10 @@ function CustomModal({
   return (
     <Overlay isOpen={showDialog} onDismiss={close}>
       <ModalContent aria-label="complex" type={type}>
-        <article style={{ padding: '1rem' }}>
+        <article css={{ padding: '1rem' }}>
           {!hideHeader && (
             <Header>
-              <h2 style={{ margin: 0 }}>
+              <h2 css={{ margin: 0 }}>
                 {!hideLogo && <Logo />}
                 {title}
               </h2>
@@ -44,7 +44,7 @@ export function ComplexModal() {
   const close = () => setShowDialog(false);
 
   return (
-    <div style={{ marginBottom: '1rem' }}>
+    <div css={{ marginBottom: '1rem' }}>
       <button onClick={open}>Show Complex Modal</button>
       <CustomModal
         showDialog={showDialog}
@@ -60,7 +60,9 @@ export function ComplexModal() {
           laborum incididunt sunt aliquip nisi in cillum. Velit aliquip sint
           quis ut quis tempor voluptate fugiat nulla.
         </p>
-        <button onClick={close}>OK</button>
+        <button css={{ width: '100%' }} onClick={close}>
+          OK
+        </button>
       </CustomModal>
     </div>
   );

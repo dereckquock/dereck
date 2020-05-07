@@ -7,11 +7,11 @@ export function BasicModal() {
   const close = () => setShowDialog(false);
 
   return (
-    <div style={{ marginBottom: '1rem' }}>
+    <div css={{ marginBottom: '1rem' }}>
       <button onClick={open}>Show Dialog</button>
       <Dialog
         aria-label="basic"
-        style={{ color: '#666666' }}
+        css={{ color: '#666666' }}
         isOpen={showDialog}
         onDismiss={close}
       >

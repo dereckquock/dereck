@@ -5,13 +5,13 @@ export function SimplerModal() {
   const { showDialog, openDialog, closeDialog } = useModal();
 
   return (
-    <div style={{ marginBottom: '1rem' }}>
+    <div css={{ marginBottom: '1rem' }}>
       <button onClick={openDialog}>Show Simpler Modal</button>
       <Overlay isOpen={showDialog}>
         <ModalContent aria-label="basic" type="3/4">
-          <article style={{ padding: '1rem' }}>
+          <article css={{ padding: '1rem' }}>
             <Header>
-              <h2 style={{ margin: 0 }}>
+              <h2 css={{ margin: 0 }}>
                 <Logo /> Modal Title
               </h2>
             </Header>
@@ -21,7 +21,9 @@ export function SimplerModal() {
               laborum incididunt sunt aliquip nisi in cillum. Velit aliquip sint
               quis ut quis tempor voluptate fugiat nulla.
             </p>
-            <button onClick={closeDialog}>OK</button>
+            <button css={{ width: '100%' }} onClick={closeDialog}>
+              OK
+            </button>
           </article>
         </ModalContent>
       </Overlay>
