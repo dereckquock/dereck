@@ -1,6 +1,14 @@
 import React from 'react';
 import { DialogOverlay, DialogContent } from '@reach/dialog';
 import styled from '@emotion/styled';
+import facepaint from 'facepaint';
+
+const mediaQueries = facepaint([
+  '@media(min-width: 576px)',
+  '@media(min-width: 768px)',
+  '@media(min-width: 992px)',
+  '@media(min-width: 1200px)',
+]);
 
 function getHeight(type) {
   switch (type) {
@@ -22,10 +30,14 @@ export const Overlay = styled(DialogOverlay)`
 `;
 
 export const ModalContent = styled(DialogContent)`
-  height: ${(props) => getHeight(props.type)};
-  margin: 0 auto;
-  padding: 0;
-  box-shadow: 0px 10px 50px hsla(0, 0%, 0%, 0.33);
+  ${(props) =>
+    mediaQueries({
+      width: ['100vw', '70vw', '50vw'],
+      height: getHeight(props.type),
+      margin: '0 auto',
+      padding: 0,
+      boxShadow: '0px 10px 50px hsla(0, 0%, 0%, 0.33)',
+    })}
 `;
 
 export const Header = styled.header`
