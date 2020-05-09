@@ -6,6 +6,7 @@ module.exports = {
     description:
       'I do full stack development and I love building things that help people.',
     author: '@dereckquock',
+    siteUrl: 'https://dereckquock.com',
   },
   plugins: [
     {

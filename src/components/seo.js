@@ -1,67 +1,97 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { StaticQuery, graphql } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
+import { useLocation } from '@reach/router';
 
-function SEO({ description, lang, meta, keywords, title }) {
+function SEO(props) {
+  const { description, lang, meta, keywords, title, image } = props;
+  const { pathname } = useLocation();
+  const data = useStaticQuery(graphql`
+    query SEOQuery {
+      site {
+        siteMetadata {
+          title
+          description
+          author
+          siteUrl
+        }
+      }
+      defaultImage: file(relativePath: { eq: "me.jpg" }) {
+        childImageSharp {
+          fluid(maxWidth: 300) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `);
+
+  const { siteUrl } = data.site.siteMetadata;
+  const metaDescription = description || data.site.siteMetadata.description;
+  const {
+    childImageSharp: {
+      fluid: { src: defaultImage },
+    },
+  } = data.defaultImage;
+
   return (
-    <StaticQuery
-      query={detailsQuery}
-      render={(data) => {
-        const metaDescription =
-          description || data.site.siteMetadata.description;
-        return (
-          <Helmet
-            htmlAttributes={{
-              lang,
-            }}
-            title={title}
-            titleTemplate={`%s | ${data.site.siteMetadata.title}`}
-            meta={[
-              {
-                name: 'description',
-                content: metaDescription,
-              },
-              {
-                property: 'og:title',
-                content: title,
-              },
-              {
-                property: 'og:description',
-                content: metaDescription,
-              },
-              {
-                property: 'og:type',
-                content: 'website',
-              },
-              {
-                name: 'twitter:card',
-                content: 'summary',
-              },
-              {
-                name: 'twitter:creator',
-                content: data.site.siteMetadata.author,
-              },
-              {
-                name: 'twitter:title',
-                content: title,
-              },
-              {
-                name: 'twitter:description',
-                content: metaDescription,
-              },
-            ]
-              .concat(
-                keywords.length > 0
-                  ? {
-                      name: 'keywords',
-                      content: keywords.join(', '),
-                    }
-                  : []
-              )
-              .concat(meta)}
-          />
-        );
+    <Helmet
+      htmlAttributes={{
+        lang,
       }}
+      title={title}
+      titleTemplate={`%s | ${data.site.siteMetadata.title}`}
+      meta={[
+        {
+          name: 'description',
+          content: metaDescription,
+        },
+        {
+          property: 'og:title',
+          content: title,
+        },
+        {
+          property: 'og:description',
+          content: metaDescription,
+        },
+        {
+          property: 'og:type',
+          content: 'website',
+        },
+        {
+          property: 'og:image',
+          content: `${siteUrl}${image || defaultImage}`,
+        },
+        {
+          property: 'og:url',
+          content: `${siteUrl}${pathname}`,
+        },
+        {
+          name: 'twitter:card',
+          content: 'summary',
+        },
+        {
+          name: 'twitter:creator',
+          content: data.site.siteMetadata.author,
+        },
+        {
+          name: 'twitter:title',
+          content: title,
+        },
+        {
+          name: 'twitter:description',
+          content: metaDescription,
+        },
+      ]
+        .concat(
+          keywords.length > 0
+            ? {
+                name: 'keywords',
+                content: keywords.join(', '),
+              }
+            : []
+        )
+        .concat(meta)}
     />
   );
 }
@@ -73,15 +103,3 @@ SEO.defaultProps = {
 };
 
 export default SEO;
-
-const detailsQuery = graphql`
-  query DefaultSEOQuery {
-    site {
-      siteMetadata {
-        title
-        description
-        author
-      }
-    }
-  }
-`;

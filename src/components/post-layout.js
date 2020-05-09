@@ -14,14 +14,14 @@ const components = {
   pre: (props) => <div {...props} />,
 };
 
-export default function PageTemplate({ data: { mdx } }) {
-  const { slug, body, timeToRead, frontmatter } = mdx;
+export default function PageTemplate({ path, data: { mdx } }) {
+  const { body, timeToRead, frontmatter } = mdx;
   const { image, imageAuthor, imageAuthorUrl, title, date } = frontmatter;
   const { childImageSharp: { fluid } = {} } = image || {};
 
   return (
-    <Layout path={`/${slug}`}>
-      <SEO {...frontmatter} />
+    <Layout path={path}>
+      <SEO {...frontmatter} image={fluid.src} />
 
       <article>
         <h1>{title}</h1>
@@ -64,11 +64,6 @@ export default function PageTemplate({ data: { mdx } }) {
 
 export const pageQuery = graphql`
   query BlogPostQuery($id: String) {
-    site {
-      siteMetadata {
-        title
-      }
-    }
     mdx(id: { eq: $id }) {
       id
       body
