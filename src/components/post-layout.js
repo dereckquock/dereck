@@ -21,7 +21,7 @@ export default function PageTemplate({ path, data: { mdx } }) {
 
   return (
     <Layout path={path}>
-      <SEO {...frontmatter} image={fluid.src} />
+      <SEO {...frontmatter} isPost image={fluid.src} />
 
       <article>
         <h1>{title}</h1>

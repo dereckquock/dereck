@@ -4,7 +4,15 @@ import { graphql, useStaticQuery } from 'gatsby';
 import { useLocation } from '@reach/router';
 
 function SEO(props) {
-  const { description, lang, meta, keywords, title, image } = props;
+  const {
+    description,
+    image,
+    isPost = false,
+    keywords,
+    lang,
+    meta,
+    title,
+  } = props;
   const { pathname } = useLocation();
   const data = useStaticQuery(graphql`
     query SEOQuery {
@@ -61,7 +69,7 @@ function SEO(props) {
         },
         {
           property: 'og:type',
-          content: 'website',
+          content: isPost ? 'article' : 'website',
         },
         {
           property: 'og:image',
@@ -73,7 +81,7 @@ function SEO(props) {
         },
         {
           name: 'twitter:card',
-          content: 'summary',
+          content: 'summary_large_image',
         },
         {
           name: 'twitter:creator',
