@@ -33,6 +33,7 @@ function SEO(props) {
       fluid: { src: defaultImage },
     },
   } = data.defaultImage;
+  const metaImage = `${siteUrl}${image || defaultImage}`;
 
   return (
     <Helmet
@@ -45,6 +46,10 @@ function SEO(props) {
         {
           name: 'description',
           content: metaDescription,
+        },
+        {
+          property: 'image',
+          content: metaImage,
         },
         {
           property: 'og:title',
@@ -60,7 +65,7 @@ function SEO(props) {
         },
         {
           property: 'og:image',
-          content: `${siteUrl}${image || defaultImage}`,
+          content: metaImage,
         },
         {
           property: 'og:url',
@@ -81,6 +86,10 @@ function SEO(props) {
         {
           name: 'twitter:description',
           content: metaDescription,
+        },
+        {
+          property: 'twitter:image',
+          content: metaImage,
         },
       ]
         .concat(
