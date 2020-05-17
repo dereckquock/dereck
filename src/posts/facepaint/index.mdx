@@ -25,6 +25,13 @@ I'm using [emotion](https://emotion.sh) and I was seeing how to implement media 
 the game, but I stumbled upon using [facepaint](https://github.com/emotion-js/facepaint) to define reusable media
 queries.
 
+`facepaint` takes an array of selectors, in our case media query breakpoints, and returns a function that you wrap
+around your object styles.
+
+```js
+facepaint(selectors: Array<Selector>) : DynamicStyleFunction
+```
+
 Breakpoints are defined like:
 
 ```js
@@ -37,15 +44,15 @@ const mq = facepaint([
 ]);
 ```
 
-This returns a function that you wrap around your object styles. 💁 Remember, facepaint only works with object styles!
-
 Then you can use `mq` to generate media queries for a specific property:
 
 ```js
 mq({ color: ['red', 'green', 'blue'] });
 ```
 
-generates this CSS 👇
+💁 **Remember, facepaint only works with object styles!**
+
+This generates the CSS 👇
 
 ```json
 {
@@ -80,9 +87,10 @@ the first breakpoint.
 If you want to skip that first breakpoint and only cover the second one, you can use `mq({ color: ['red', null, 'green'] })` because `boolean`, `undefined`, and `null` values are ignored.
 
 A lot of the time, we need to have [conditional styling based on component
-props](https://emotion.sh/docs/styled#changing-based-on-props). This isn't too bad:
+props](https://emotion.sh/docs/styled#changing-based-on-props). Based on the `isReversed` prop, we can reverse the array
+of colors, or the values at each breakpoint that we previously defined.
 
-```js
+```js 6
 const Block = styled.div((props) => {
   const { isReversed } = props;
   const colors = ['red', 'green', 'blue'];
@@ -98,9 +106,6 @@ const Block = styled.div((props) => {
 
 <Block isReversed={true} />;
 ```
-
-Based on the `isReversed` prop, we can reverse the array of colors, or the values at each breakpoint that we previously
-defined.
 
 You can check out this codesandbox for yourself 👍
 

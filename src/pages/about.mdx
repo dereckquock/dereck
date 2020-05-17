@@ -3,6 +3,7 @@ title: About
 description: A little bit about myself
 ---
 
+import { Link } from 'gatsby';
 import SEO from '../components/seo';
 import Heading from '../components/heading';
 
@@ -24,7 +25,19 @@ all over the globe. Now I use web technologies to build exceptional experiences 
 
 I focus mainly on React, React Native, Gatsby, GraphQL, Node, Express, and I'm expanding my TypeScript knowledge.
 
-## 👨‍💻 [**See the things I've been working on**](/projects)
+<Link
+  to="/projects"
+  style={{
+    width: '100%',
+    marginBottom: '1rem',
+    display: 'inline-block',
+    fontSize: '1.5rem',
+    lineHeight: 1.25,
+    textAlign: 'center',
+  }}
+>
+  {`👨‍💻 Check out the things I've been working on`}
+</Link>
 
 ---
 

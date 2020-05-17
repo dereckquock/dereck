@@ -46,7 +46,7 @@ headings in a list, but it's the perfect use case for our **Continue** button.
 Notice how the button stays stuck to the bottom until more content under it pushes is up 🔥 and all we had to do was add
 some CSS:
 
-```CSS
+```css
 .sticky {
   position: sticky;
   bottom: 0;
@@ -72,9 +72,12 @@ do in web apps as well.
 
 [![Edit this on CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/sticky-headings-ii910?fontsize=14&hidenavigation=1&theme=dark)
 
+Just as we set `bottom: 0` to make our **Continue** button stick to the bottom, setting `top: 0` on a sticky
+positioned heading causes it to stick to the top.
+
 Here we have some styled components:
 
-```css
+```css 3,4
 const Dt = styled.dt`
   padding: 6px 16px;
   position: sticky;
@@ -103,9 +106,6 @@ and the corresponding markup:
 <Dd>Black Cat</Dd>
 ```
 
-Just as we set `bottom: 0` to make our **Continue** button stick to the bottom, setting `top: 0` on the sticky
-positioned heading causes it to stick to the top.
-
 If you want to explore more of how to create awesome sticky headers, Eric Bidelman has an awesome post about [using an
 `IntersectionObserver` to observe when sticky positioned elements become stuck](https://developers.google.com/web/updates/2017/09/sticky-headers).
 
@@ -118,9 +118,11 @@ have a sticky column with the times of the day.
 
 [![Edit this on CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/sticky-table-em77t?fontsize=14&hidenavigation=1&theme=dark)
 
+By setting `top: 0` for the column headers and `left: 0`, we can get the table headers to stick correctly.
+
 To make the table headers stick, we just have to do something like this:
 
-```css
+```css 3,9,12
 const TableHeader = styled.th`
   padding: 20px;
   position: sticky;
@@ -158,8 +160,10 @@ with a table defined like this:
 </tr>
 ```
 
-By setting `top: 0` for the column headers and `left: 0`, we can get the table headers to stick correctly.
-
 Now get out there and create some sticky experiences!
 
-![Spider-Man](https://media.giphy.com/media/9tZc9Mzo9K0yOYx38U/giphy.gif)
+<img
+  src="https://media.giphy.com/media/9tZc9Mzo9K0yOYx38U/giphy.gif"
+  alt="Spider-Man"
+  width="100%"
+/>

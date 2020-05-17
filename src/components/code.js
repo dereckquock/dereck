@@ -1,6 +1,6 @@
 import React from 'react';
 import Highlight, { defaultProps } from 'prism-react-renderer';
-import theme from 'prism-react-renderer/themes/synthwave84';
+import theme from 'prism-react-renderer/themes/nightOwl';
 
 const Code = ({ children, className, metastring = '' }) => {
   const language = className.replace(/language-/, '');
@@ -15,38 +15,44 @@ const Code = ({ children, className, metastring = '' }) => {
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => {
         return (
-          <pre
-            className={className}
-            css={{
-              ...style,
-              margin: '1em 0',
-              padding: '1rem 0',
-              borderRadius: 8,
-            }}
-          >
-            {tokens.map((line, i) => {
-              const shouldHighlightLine = linesToHighlight.includes(`${i + 1}`);
+          <div css={{ overflow: 'auto' }}>
+            <pre
+              className={className}
+              css={{
+                ...style,
+                margin: '0 0 1em',
+                padding: '1rem 0',
+                float: 'left',
+                minWidth: '100%',
+                overflow: 'initial',
+                borderRadius: 8,
+              }}
+            >
+              {tokens.map((line, i) => {
+                const shouldHighlightLine = linesToHighlight.includes(
+                  `${i + 1}`
+                );
 
-              return (
-                <div
-                  key={i}
-                  {...getLineProps({ line, key: i })}
-                  css={{
-                    padding: '0 0.5rem',
-                    marginRight: shouldHighlightLine ? '-0.5rem' : 0,
-                    borderLeft: shouldHighlightLine ? '2px solid' : '0',
-                    backgroundColor: shouldHighlightLine
-                      ? 'rgba(255,255,255,0.2)'
-                      : 'transparent',
-                  }}
-                >
-                  {line.map((token, key) => (
-                    <span key={key} {...getTokenProps({ token, key })} />
-                  ))}
-                </div>
-              );
-            })}
-          </pre>
+                return (
+                  <div
+                    key={i}
+                    {...getLineProps({ line, key: i })}
+                    css={{
+                      padding: '0 0.5rem',
+                      borderLeft: shouldHighlightLine ? '1px solid' : 0,
+                      backgroundColor: shouldHighlightLine
+                        ? 'rgba(255,255,255,0.2)'
+                        : 'transparent',
+                    }}
+                  >
+                    {line.map((token, key) => (
+                      <span key={key} {...getTokenProps({ token, key })} />
+                    ))}
+                  </div>
+                );
+              })}
+            </pre>
+          </div>
         );
       }}
     </Highlight>

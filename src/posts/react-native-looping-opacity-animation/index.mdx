@@ -43,12 +43,12 @@ CSS Keyframes make it as easy as pie 🥧
 }
 ```
 
-In React Native, it's not as easy. Animations are usually implemented using
-[react-native-reanimated](https://github.com/software-mansion/react-native-reanimated) and with the help of
+A blinking dot in React Native requires a little more work. Animations are usually implemented using
+[react-native-reanimated](https://github.com/software-mansion/react-native-reanimated). With the help of
 [react-native-redash](https://github.com/wcandillon/react-native-redash) from William Candillon, who does the [_Can it
-be done in React Native_ videos on YouTube](https://www.youtube.com/user/wcandill), it was relatively painless.
-
-A blinking dot in React Native looks something like this:
+be done in React Native_ videos on YouTube](https://www.youtube.com/user/wcandill), animating this blinking dot isn't
+that bad. Using the [loop() function](https://wcandillon.github.io/react-native-redash/run-animations#loop) with the
+`boomerang` option set to `true`, the opacity will bounce back and forth from 0 to 1 🦘
 
 ```jsx
 import Svg, { Circle } from 'react-native-svg';
@@ -90,5 +90,6 @@ function BlinkingDot() {
 }
 ```
 
-The [loop() function](https://wcandillon.github.io/react-native-redash/run-animations#loop) makes this easier to do and
-with the `boomerang` option set to `true`, the opacity will bounce back and forth from 0 to 1 🦘
+[React Native Reanimated](https://software-mansion.github.io/react-native-reanimated/index.html) uses a declarative API,
+so it's a lot easier to understand what's going on. Animations are performed in steps, which is very similar to how keyframe
+animations are executed. This is great because it lowers the barrier of entry for developers getting into React Native.
