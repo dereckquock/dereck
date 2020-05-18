@@ -20,11 +20,12 @@ const Code = ({ children, className, metastring = '' }) => {
               className={className}
               css={{
                 ...style,
+                minWidth: '100%',
                 margin: '0 0 1em',
                 padding: '1rem 0',
                 float: 'left',
-                minWidth: '100%',
                 overflow: 'initial',
+                fontSize: '0.8888rem',
                 borderRadius: 8,
               }}
             >
