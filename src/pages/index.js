@@ -61,7 +61,7 @@ function App(props) {
                   css={{
                     width: '100%',
                     display: 'inline-block',
-                    fontWeight: 600,
+                    fontWeight: 700,
                     textDecoration: 'none',
 
                     ':hover .post-image': {

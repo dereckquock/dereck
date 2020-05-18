@@ -3,18 +3,34 @@
   --text: #25282c;
   --gold: #746136;
 }
+@font-face {
+  font-family: 'Victor Mono';
+  src: url(../fonts/VictorMono-Regular.woff2) format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Victor Mono';
+  src: url(../fonts/VictorMono-Italic.woff2) format('woff2');
+  font-weight: normal;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Victor Mono';
+  src: url(../fonts/VictorMono-Bold.woff2) format('woff2');
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Victor Mono';
+  src: url(../fonts/VictorMono-BoldItalic.woff2) format('woff2');
+  font-weight: bold;
+  font-style: italic;
+}
 .dark {
   --text: #f8f5f0;
   --background: #25282c;
   --gold: #b3995d;
-}
-html {
-  font-family: 'Fira Code', monospace;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-}
-body {
-  margin: 0;
 }
 article,
 aside,
@@ -51,11 +67,9 @@ a {
   color: var(--gold);
   background-color: transparent;
   -webkit-text-decoration-skip: objects;
-  transition: font-weight 0.1s ease;
 }
 a:active,
 a:hover {
-  font-weight: 600;
   outline-width: 0;
 }
 a:visited {
@@ -214,9 +228,10 @@ html {
 }
 body {
   min-height: 100vh;
+  margin: 0;
   background: var(--background);
   color: var(--text);
-  font-family: 'Fira Code', monospace;
+  font-family: 'Victor Mono', monospace;
   font-weight: normal;
   word-wrap: break-word;
   font-kerning: normal;

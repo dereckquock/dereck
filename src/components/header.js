@@ -35,7 +35,12 @@ const Header = ({ siteTitle, path }) => {
               }}
             >
               <h1
-                css={{ margin: 0, fontSize: '1.125rem', color: 'var(--text)' }}
+                css={{
+                  margin: 0,
+                  fontSize: '1.125rem',
+                  fontStyle: 'italic',
+                  color: 'var(--text)',
+                }}
               >
                 {siteTitle}
               </h1>
