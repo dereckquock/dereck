@@ -583,6 +583,13 @@ pre code {
 @media only screen and (max-width: 480px) {
   html {
     font-size: 100%;
+
+    /* 
+      This controls the text inflation algorithm used on some smartphones and tablets.
+      https://developer.mozilla.org/en-US/docs/Web/CSS/text-size-adjust
+      Mobile safari causes text to be unnecessarily large, so just set this to 100% because we know what we're doing 😅
+    */
+    text-size-adjust: 100%;
   }
 }
 
