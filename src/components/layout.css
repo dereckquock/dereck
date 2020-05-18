@@ -89,8 +89,8 @@ dfn {
   font-style: italic;
 }
 h1 {
-  font-size: 2em;
-  margin: 0.67em 0;
+  font-size: 2rem;
+  margin: 0.67rem 0;
 }
 mark {
   background-color: #ff0;
@@ -107,10 +107,10 @@ sup {
   vertical-align: baseline;
 }
 sub {
-  bottom: -0.25em;
+  bottom: -0.25rem;
 }
 sup {
-  top: -0.5em;
+  top: -0.5rem;
 }
 img {
   border-style: none;
@@ -123,10 +123,10 @@ kbd,
 pre,
 samp {
   font-family: monospace, monospace;
-  font-size: 1em;
+  font-size: 1rem;
 }
 figure {
-  margin: 1em 40px;
+  margin: 1rem 40px;
 }
 hr {
   box-sizing: content-box;
@@ -174,7 +174,7 @@ button:-moz-focusring {
 fieldset {
   border: 1px solid silver;
   margin: 0 2px;
-  padding: 0.35em 0.625em 0.75em;
+  padding: 0.35rem 0.625rem 0.75rem;
 }
 legend {
   box-sizing: border-box;
@@ -213,7 +213,7 @@ textarea {
   font: inherit;
 }
 html {
-  font: 112.5%/1.45em georgia, serif;
+  font: 112.5%/1.45rem georgia, serif;
   box-sizing: border-box;
   overflow-y: scroll;
 }
