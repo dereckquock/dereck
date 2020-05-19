@@ -25,7 +25,7 @@ function Heading() {
         >
           👋
         </span>{' '}
-        I&apos;m Dereck Quock
+        I&#39;m Dereck Quock
       </span>
     </h1>
   );
