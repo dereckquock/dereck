@@ -49,7 +49,7 @@ function SEO(props) {
         lang,
       }}
       title={title}
-      titleTemplate={`%s 🍺 ${data.site.siteMetadata.title}`}
+      titleTemplate={`%s | ${data.site.siteMetadata.title}`}
       meta={[
         {
           name: 'description',
