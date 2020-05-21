@@ -73,7 +73,7 @@ module.exports = {
       options: {
         name: 'dereck quock',
         short_name: 'dereck quock',
-        start_url: 'https://dereckquock.com',
+        start_url: '/',
         background_color: '#25282c',
         theme_color: '#25282c',
         display: 'standalone',
@@ -82,7 +82,7 @@ module.exports = {
           {
             name: 'About Me',
             short_name: 'About',
-            url: '/about',
+            url: 'https://dereckquock.com/about',
             icons: [
               {
                 src: 'src/images/icon.png',
@@ -94,7 +94,7 @@ module.exports = {
           {
             name: 'My Projects',
             short_name: 'Projects',
-            url: '/projects',
+            url: 'https://dereckquock.com/projects',
             icons: [
               {
                 src: 'src/images/icon.png',
