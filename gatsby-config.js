@@ -73,7 +73,7 @@ module.exports = {
       options: {
         name: 'dereck quock',
         short_name: 'dereck quock',
-        start_url: '/',
+        start_url: 'https://dereckquock.com',
         background_color: '#25282c',
         theme_color: '#25282c',
         display: 'standalone',
