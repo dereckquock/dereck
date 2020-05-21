@@ -71,13 +71,39 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'gatsby-default-mdx-basic',
+        name: 'dereck quock',
         short_name: 'dereck quock',
         start_url: '/',
         background_color: '#25282c',
         theme_color: '#25282c',
-        display: 'minimal-ui',
+        display: 'standalone',
         icon: 'src/images/icon.png', // This path is relative to the root of the site.
+        shortcuts: [
+          {
+            name: 'About Me',
+            short_name: 'About',
+            url: '/about',
+            icons: [
+              {
+                src: 'src/images/icon.png',
+                sizes: '192x192',
+                type: 'image/png',
+              },
+            ],
+          },
+          {
+            name: 'My Projects',
+            short_name: 'Projects',
+            url: '/projects',
+            icons: [
+              {
+                src: 'src/images/icon.png',
+                sizes: '192x192',
+                type: 'image/png',
+              },
+            ],
+          },
+        ],
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
