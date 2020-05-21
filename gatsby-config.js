@@ -82,7 +82,7 @@ module.exports = {
           {
             name: 'About Me',
             short_name: 'About',
-            url: 'https://dereckquock.com/about',
+            url: '/about',
             icons: [
               {
                 src: 'src/images/icon.png',
@@ -94,7 +94,7 @@ module.exports = {
           {
             name: 'My Projects',
             short_name: 'Projects',
-            url: 'https://dereckquock.com/projects',
+            url: '/projects',
             icons: [
               {
                 src: 'src/images/icon.png',
