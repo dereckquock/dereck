@@ -58,6 +58,19 @@ export default function PageTemplate({ path, data: { mdx } }) {
           <MDXRenderer>{body}</MDXRenderer>
         </MDXProvider>
       </article>
+      <hr />
+      <footer>
+        <blockquote css={{ margin: 0 }}>
+          <a
+            href={`https://github.com/dereckquock/dereck/blob/master/src/posts${path}/index.mdx`}
+            target="_blank"
+            rel="noopener noreferrer"
+            css={{ fontSize: '0.7778rem' }}
+          >
+            Edit this post on GitHub
+          </a>
+        </blockquote>
+      </footer>
     </Layout>
   );
 }
