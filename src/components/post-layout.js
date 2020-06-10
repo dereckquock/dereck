@@ -7,11 +7,15 @@ import Layout from './layout';
 import SEO from './seo';
 import Code from './code';
 
+function Pre(props) {
+  return <div {...props} />;
+}
+
 // Provide common components here so that they're globally available
 const components = {
   code: Code,
   Link,
-  pre: (props) => <div {...props} />,
+  pre: Pre,
 };
 
 export default function PageTemplate({ path, data: { mdx } }) {

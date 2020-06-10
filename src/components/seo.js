@@ -8,9 +8,9 @@ function SEO(props) {
     description,
     image,
     isPost = false,
-    keywords,
-    lang,
-    meta,
+    keywords = [],
+    lang = 'en',
+    meta = [],
     title,
   } = props;
   const { pathname } = useLocation();
@@ -45,9 +45,7 @@ function SEO(props) {
 
   return (
     <Helmet
-      htmlAttributes={{
-        lang,
-      }}
+      htmlAttributes={{ lang }}
       title={title}
       titleTemplate={`%s | ${data.site.siteMetadata.title}`}
       meta={[
@@ -112,11 +110,5 @@ function SEO(props) {
     />
   );
 }
-
-SEO.defaultProps = {
-  lang: 'en',
-  meta: [],
-  keywords: [],
-};
 
 export default SEO;

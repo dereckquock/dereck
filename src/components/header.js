@@ -13,7 +13,7 @@ const StyledHeader = styled.header`
   justify-content: space-between;
 `;
 
-const Header = ({ siteTitle, path }) => {
+const Header = ({ siteTitle = '', path }) => {
   return (
     <ThemeToggler>
       {({ theme, toggleTheme }) => (
@@ -68,10 +68,6 @@ const Header = ({ siteTitle, path }) => {
       )}
     </ThemeToggler>
   );
-};
-
-Header.defaultProps = {
-  siteTitle: '',
 };
 
 export default Header;
