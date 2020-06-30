@@ -35,6 +35,7 @@ function SEO(props) {
   `);
 
   const { siteUrl } = data.site.siteMetadata;
+  const url = `${siteUrl}${pathname}`;
   const metaDescription = description || data.site.siteMetadata.description;
   const {
     childImageSharp: {
@@ -42,6 +43,35 @@ function SEO(props) {
     },
   } = data.defaultImage;
   const metaImage = `${siteUrl}${image || defaultImage}`;
+  const structuredData = isPost
+    ? `
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "url": "${url}",
+      "author": {
+        "@type": "Person",
+        "name": "Dereck Quock"
+      },
+      "image": "${metaImage}",
+      "headline": "${title}",
+      "description": "${metaDescription}"
+    }
+  `
+    : `
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "url": "${url}",
+      "givenName": "Dereck",
+      "familyName": "Quock,
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "djquock@gmail.com",
+        "contactType": "Get in touch"
+      }
+    }
+  `;
 
   return (
     <Helmet
@@ -75,7 +105,7 @@ function SEO(props) {
         },
         {
           property: 'og:url',
-          content: `${siteUrl}${pathname}`,
+          content: url,
         },
         {
           name: 'twitter:card',
@@ -107,7 +137,9 @@ function SEO(props) {
             : []
         )
         .concat(meta)}
-    />
+    >
+      <script type="application/ld+json">{structuredData}</script>
+    </Helmet>
   );
 }
 
