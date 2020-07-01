@@ -64,7 +64,7 @@ function SEO(props) {
       "@type": "Person",
       "url": "${url}",
       "givenName": "Dereck",
-      "familyName": "Quock,
+      "familyName": "Quock",
       "contactPoint": {
         "@type": "ContactPoint",
         "email": "djquock@gmail.com",
