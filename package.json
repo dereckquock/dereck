@@ -6,27 +6,26 @@
   "dependencies": {
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
-    "@mdx-js/mdx": "^1.6.5",
-    "@mdx-js/react": "^1.6.5",
-    "@reach/dialog": "^0.10.3",
-    "@reach/visually-hidden": "^0.10.2",
+    "@mdx-js/mdx": "^1.6.22",
+    "@mdx-js/react": "^1.6.22",
+    "@reach/dialog": "^0.13.0",
+    "@reach/visually-hidden": "^0.13.0",
     "facepaint": "^1.2.1",
-    "gatsby": "^2.23.3",
-    "gatsby-image": "^2.4.7",
+    "gatsby": "^2.32.3",
+    "gatsby-image": "^2.11.0",
     "gatsby-plugin-dark-mode": "^1.1.2",
     "gatsby-plugin-emotion": "^4.3.4",
-    "gatsby-plugin-manifest": "^2.4.11",
-    "gatsby-plugin-mdx": "^1.2.15",
-    "gatsby-plugin-offline": "^3.2.9",
-    "gatsby-plugin-react-helmet": "^3.3.4",
-    "gatsby-plugin-sharp": "^2.6.11",
-    "gatsby-remark-autolink-headers": "^2.3.5",
-    "gatsby-remark-images": "^3.3.10",
-    "gatsby-source-filesystem": "^2.3.11",
-    "gatsby-transformer-sharp": "^2.5.5",
+    "gatsby-plugin-manifest": "^2.12.0",
+    "gatsby-plugin-mdx": "^1.10.0",
+    "gatsby-plugin-react-helmet": "^3.10.0",
+    "gatsby-plugin-sharp": "^2.14.1",
+    "gatsby-remark-autolink-headers": "^2.11.0",
+    "gatsby-remark-images": "^3.11.0",
+    "gatsby-source-filesystem": "^2.11.0",
+    "gatsby-transformer-sharp": "^2.12.0",
     "prism-react-renderer": "^1.1.1",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0"
   },
   "keywords": [
@@ -42,26 +41,26 @@
     "start": "gatsby develop",
     "format": "prettier --write \"src/**/*.js\"",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint . --ext js,mdx"
+    "lint": "eslint . --ext js,mdx",
+    "lint-staged": "lint-staged",
+    "postinstall": "husky install",
+    "prepublishOnly": "pinst --disable",
+    "postpublish": "pinst --enable"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
-    "eslint": "^6.8.0",
-    "eslint-config-prettier": "^6.11.0",
-    "eslint-plugin-mdx": "^1.7.0",
-    "eslint-plugin-react": "^7.20.0",
-    "husky": "^4.2.5",
-    "lint-staged": "^10.2.9",
-    "prettier": "^2.0.5"
+    "eslint": "^7.20.0",
+    "eslint-config-prettier": "^7.2.0",
+    "eslint-plugin-mdx": "^1.8.2",
+    "eslint-plugin-react": "^7.22.0",
+    "husky": "^5.0.9",
+    "lint-staged": "^10.5.4",
+    "pinst": "^2.1.4",
+    "prettier": "^2.2.1"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/dereckquock/dereck"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
   },
   "lint-staged": {
     "*.{js,mdx}": "eslint --cache --fix",

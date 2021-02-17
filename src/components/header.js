@@ -20,7 +20,7 @@ const Header = ({ siteTitle = '', path }) => {
         <div
           css={{
             background:
-              'linear-gradient(.49turn, var(--gold) 0%, var(--background) 55%)',
+              'linear-gradient(0deg, var(--background) 0%, var(--gold) 100%)',
             marginBottom: '1.45rem',
           }}
         >
@@ -54,10 +54,16 @@ const Header = ({ siteTitle = '', path }) => {
                   padding: '0 0.5rem',
                   display: 'inline-block',
                   lineHeight: '1.778rem',
-                  color: 'var(--text)',
                   textDecoration: 'none',
                   textShadow: path.includes('/about') ? '0 0 4px' : '0',
+                  ':focus': {
+                    textDecoration: 'revert',
+                  },
+                  ':hover': {
+                    textDecoration: 'revert',
+                  },
                 }}
+                style={{ color: 'var(--text)' }}
               >
                 about
               </Link>
