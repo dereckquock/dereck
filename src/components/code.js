@@ -1,6 +1,6 @@
-import React from 'react';
 import Highlight, { defaultProps } from 'prism-react-renderer';
 import theme from 'prism-react-renderer/themes/nightOwl';
+import React from 'react';
 
 const Code = ({ children, className, metastring = '' }) => {
   const language = className.replace(/language-/, '');
@@ -23,7 +23,7 @@ const Code = ({ children, className, metastring = '' }) => {
                 minWidth: '100%',
                 margin: '0 0 1em',
                 padding: '1rem 0',
-                float: 'left',
+                cssFloat: 'left',
                 overflow: 'initial',
                 fontSize: '0.8888rem',
                 borderRadius: 8,

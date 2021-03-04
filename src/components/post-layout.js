@@ -1,11 +1,11 @@
-import React from 'react';
+import { MDXProvider } from '@mdx-js/react';
 import { graphql, Link } from 'gatsby';
 import Image from 'gatsby-image';
-import { MDXProvider } from '@mdx-js/react';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
+import React from 'react';
+import Code from './code';
 import Layout from './layout';
 import SEO from './seo';
-import Code from './code';
 
 function Pre(props) {
   return <div {...props} />;

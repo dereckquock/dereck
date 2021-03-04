@@ -1,9 +1,9 @@
-import React from 'react';
-import { useStaticQuery, graphql, Link } from 'gatsby';
+import { graphql, Link, useStaticQuery } from 'gatsby';
 import Image from 'gatsby-image';
-import SEO from '../components/seo';
-import Layout from '../components/layout';
+import React from 'react';
 import Heading from '../components/heading';
+import Layout from '../components/layout';
+import SEO from '../components/seo';
 
 function App(props) {
   // get blog posts, which always contain a date 📅

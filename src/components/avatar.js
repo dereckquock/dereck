@@ -1,6 +1,6 @@
-import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
 import Image from 'gatsby-image';
+import React from 'react';
 
 function Avatar() {
   const {

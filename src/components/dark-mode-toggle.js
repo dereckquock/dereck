@@ -1,6 +1,6 @@
-import React from 'react';
 import styled from '@emotion/styled';
 import VisuallyHidden from '@reach/visually-hidden';
+import React from 'react';
 
 const Label = styled.label`
   width: 2rem;

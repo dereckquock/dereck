@@ -1,5 +1,5 @@
-import React from 'react';
 import { keyframes } from '@emotion/core';
+import React from 'react';
 import Avatar from '../components/avatar';
 
 const wave = keyframes`

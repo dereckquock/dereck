@@ -1,7 +1,7 @@
-import React from 'react';
+import styled from '@emotion/styled';
 import { Link } from 'gatsby';
 import { ThemeToggler } from 'gatsby-plugin-dark-mode';
-import styled from '@emotion/styled';
+import React from 'react';
 import DarkModeToggle from './dark-mode-toggle';
 
 const StyledHeader = styled.header`
