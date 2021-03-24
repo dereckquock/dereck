@@ -1,6 +1,7 @@
+/** @jsx jsx */
+import { jsx } from '@emotion/react';
 import { graphql, useStaticQuery } from 'gatsby';
 import Image from 'gatsby-image';
-import React from 'react';
 
 function Avatar() {
   const {

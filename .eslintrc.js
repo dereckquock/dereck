@@ -1,11 +1,13 @@
 module.exports = {
   extends: ['plugin:mdx/recommended', 'plugin:react/recommended', 'prettier'],
-  plugins: ['react'],
+  plugins: ['react', '@emotion'],
   rules: {
     'no-var': 'error',
     'no-unused-vars': 1,
     'react/prop-types': 0,
     'react/display-name': 'warn',
+    '@emotion/jsx-import': 'error',
+    '@emotion/pkg-renaming': 'error',
   },
   parser: 'babel-eslint',
   parserOptions: {

@@ -1,4 +1,5 @@
-import React from 'react';
+/** @jsx jsx */
+import { jsx } from '@emotion/react';
 import { Overlay, ModalContent, Header, Logo, useModal } from './lib';
 
 export function SimplerModal() {

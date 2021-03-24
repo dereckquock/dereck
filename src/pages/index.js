@@ -1,6 +1,7 @@
+/** @jsx jsx */
+import { jsx } from '@emotion/react';
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import Image from 'gatsby-image';
-import React from 'react';
 import Heading from '../components/heading';
 import Layout from '../components/layout';
 import SEO from '../components/seo';

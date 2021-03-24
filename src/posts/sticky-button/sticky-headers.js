@@ -1,4 +1,5 @@
-import React from 'react';
+/** @jsx jsx */
+import { jsx } from '@emotion/react';
 import styled from '@emotion/styled';
 
 const characters = [
