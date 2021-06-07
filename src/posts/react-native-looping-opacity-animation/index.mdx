@@ -90,6 +90,44 @@ function BlinkingDot() {
 }
 ```
 
-[React Native Reanimated](https://software-mansion.github.io/react-native-reanimated/index.html) uses a declarative API,
-so it's a lot easier to understand what's going on. Animations are performed in steps, which is very similar to how keyframe
+[React Native Reanimated](https://software-mansion.github.io/react-native-reanimated/index.html) uses a declarative API, so it's a lot
+easier to understand what's going on. Animations are performed in steps, which is very similar to how keyframe
 animations are executed. This is great because it lowers the barrier of entry for developers getting into React Native.
+
+## UPDATE: Reanimated 2
+
+With Reanimated 2, it's much simpler and composable out of the box. We can define the animated opacity by composing
+together the higher-order animation functions `withTiming`, which returns the animation, and `withRepeat`, which takes
+in the animation to repeat.
+
+```jsx
+import Svg, { Circle } from 'react-native-svg';
+import Animated, {
+  Easing,
+  useAnimatedStyle,
+  useSharedValue,
+  withRepeat,
+  withTiming,
+} from 'react-native-reanimated';
+
+function BlinkingDot() {
+  const opacity = useSharedValue(0);
+
+  // Set the opacity value to animate between 0 and 1
+  opacity.value = withRepeat(
+    withTiming(1, { duration: 1000, easing: Easing.ease }),
+    -1,
+    true
+  );
+
+  const style = useAnimatedStyle(() => ({ opacity: opacity.value }), []);
+
+  return (
+    <Animated.View style={style}>
+      <Svg style={styles.circle} viewBox="0 0 100 100">
+        <Circle cx="50" cy="50" r="50" fill={Colors.red} fillOpacity="1" />
+      </Svg>
+    </Animated.View>
+  );
+}
+```
