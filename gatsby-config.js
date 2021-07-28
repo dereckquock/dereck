@@ -74,7 +74,7 @@ module.exports = {
         name: 'dereck quock',
         short_name: 'dereck quock',
         start_url: '/',
-        background_color: '#25282c',
+        background_color: '#b3995d',
         theme_color: '#b3995d',
         display: 'standalone',
         icon: 'src/images/icon.png', // This path is relative to the root of the site.
