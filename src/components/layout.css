@@ -1,7 +1,10 @@
 :root {
   --background: #f8f5f0;
+  --dark-gold: #746136;
+  --gold: var(--dark-gold);
+  --header-background: var(--dark-gold);
   --text: #25282c;
-  --gold: #746136;
+  --white: #f8f5f0;
 }
 @font-face {
   font-family: 'Victor Mono';
@@ -233,7 +236,7 @@ html {
 body {
   min-height: 100vh;
   margin: 0;
-  background: var(--background);
+  background: var(--dark-gold);
   color: var(--text);
   font-family: 'Victor Mono', monospace;
   font-weight: normal;
@@ -244,6 +247,10 @@ body {
   -webkit-font-feature-settings: 'kern', 'liga', 'clig', 'calt';
   font-feature-settings: 'kern', 'liga', 'clig', 'calt';
   transition: background 0.25s ease-in-out, color 0.25s ease-in-out;
+}
+main {
+  background: var(--background);
+  color: var(--text);
 }
 img {
   max-width: 100%;

@@ -20,8 +20,7 @@ const Header = ({ siteTitle = '', path }) => {
       {({ theme, toggleTheme }) => (
         <div
           css={{
-            background:
-              'linear-gradient(0deg, var(--background) 0%, var(--gold) 100%)',
+            background: 'var(--header-background)',
             marginBottom: '1.45rem',
           }}
         >
@@ -40,7 +39,7 @@ const Header = ({ siteTitle = '', path }) => {
                   margin: 0,
                   fontSize: '1.125rem',
                   fontStyle: 'italic',
-                  color: 'var(--text)',
+                  color: 'var(--white)',
                 }}
               >
                 {siteTitle}
@@ -64,7 +63,7 @@ const Header = ({ siteTitle = '', path }) => {
                     textDecoration: 'revert',
                   },
                 }}
-                style={{ color: 'var(--text)' }}
+                style={{ color: 'var(--white)' }}
               >
                 about
               </Link>

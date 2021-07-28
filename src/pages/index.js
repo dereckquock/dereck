@@ -55,7 +55,7 @@ function App(props) {
 
           return (
             <div key={slug} css={{ padding: '1.5rem 0 1rem' }}>
-              <h3 css={{ marginBottom: 0 }}>
+              <h2 css={{ marginBottom: 0 }}>
                 <Link
                   to={`/${slug}`}
                   className="post"
@@ -87,7 +87,7 @@ function App(props) {
                   )}
                   {title}
                 </Link>
-              </h3>
+              </h2>
               {description && (
                 <p css={{ maxWidth: '26rem', margin: '0.333rem auto 0' }}>
                   {description}
