@@ -9,6 +9,7 @@ module.exports = {
     siteUrl: 'https://dereckquock.com',
   },
   plugins: [
+    `gatsby-plugin-pnpm`,
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
@@ -106,7 +107,6 @@ module.exports = {
         ],
       },
     },
-    `gatsby-plugin-dark-mode`,
     `gatsby-plugin-emotion`,
   ],
 };

@@ -3,6 +3,10 @@
   "description": "Dereck's personal site",
   "version": "1.0.0",
   "author": "Dereck Quock <djquock@gmail.com>",
+  "engines": {
+    "node": ">=16",
+    "pnpm": ">=6"
+  },
   "dependencies": {
     "@emotion/react": "^11.4.0",
     "@emotion/styled": "^11.3.0",
@@ -13,10 +17,10 @@
     "facepaint": "^1.2.1",
     "gatsby": "^3.10.2",
     "gatsby-image": "^3.10.0",
-    "gatsby-plugin-dark-mode": "^1.1.2",
     "gatsby-plugin-emotion": "^6.10.0",
     "gatsby-plugin-manifest": "^3.10.0",
     "gatsby-plugin-mdx": "^2.10.1",
+    "gatsby-plugin-pnpm": "^1.2.10",
     "gatsby-plugin-react-helmet": "^4.10.0",
     "gatsby-plugin-sharp": "^3.10.2",
     "gatsby-remark-autolink-headers": "^4.7.0",
@@ -38,15 +42,16 @@
   "scripts": {
     "build": "GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true gatsby build --log-pages",
     "develop": "GATSBY_HOT_LOADER=fast-refresh gatsby develop",
-    "start": "gatsby develop",
     "format": "prettier --write \"src/**/*.js\"",
-    "test": "echo \"😅\"",
-    "lint": "eslint . --ext js,mdx",
     "lint-staged": "lint-staged",
+    "lint": "eslint . --ext js,mdx",
     "postinstall": "husky install",
-    "prepublishOnly": "pinst --disable",
     "postpublish": "pinst --enable",
-    "prepare": "husky install"
+    "prebuild": "npx pnpm install -r --store=node_modules/.pnpm-store || echo skipping pnpm install",
+    "prepare": "husky install",
+    "prepublishOnly": "pinst --disable",
+    "start": "gatsby develop",
+    "test": "echo \"😅\""
   },
   "devDependencies": {
     "@emotion/eslint-plugin": "^11.2.0",

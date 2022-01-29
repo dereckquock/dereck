@@ -1,9 +1,8 @@
 :root {
-  --background: #f8f5f0;
-  --dark-gold: #746136;
-  --gold: var(--dark-gold);
-  --header-background: var(--dark-gold);
-  --text: #25282c;
+  --text: #f8f5f0;
+  --background: #25282c;
+  --gold: #b3995d;
+  --header-background: #746136;
   --white: #f8f5f0;
 }
 @font-face {
@@ -33,11 +32,6 @@
   font-weight: bold;
   font-style: italic;
   font-display: swap;
-}
-.dark {
-  --text: #f8f5f0;
-  --background: #25282c;
-  --gold: #b3995d;
 }
 article,
 aside,
@@ -236,7 +230,7 @@ html {
 body {
   min-height: 100vh;
   margin: 0;
-  background: var(--dark-gold);
+  background: var(-gold);
   color: var(--text);
   font-family: 'Victor Mono', monospace;
   font-weight: normal;
