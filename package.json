@@ -50,8 +50,7 @@
     "prebuild": "npx pnpm install -r --store=node_modules/.pnpm-store || echo skipping pnpm install",
     "prepare": "husky install",
     "prepublishOnly": "pinst --disable",
-    "start": "gatsby develop",
-    "test": "echo \"😅\""
+    "start": "gatsby develop"
   },
   "devDependencies": {
     "@emotion/eslint-plugin": "^11.2.0",
