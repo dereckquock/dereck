@@ -38,7 +38,7 @@ export default function PageTemplate({ path, data: { mdx } }) {
             fontStyle: 'italic',
           }}
         >
-          {timeToRead && <span> • {timeToRead} min read</span>}
+          {timeToRead && <span>{timeToRead} min read</span>}
         </div>
         {fluid && (
           <div css={{ marginBottom: '1rem' }}>

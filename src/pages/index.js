@@ -29,6 +29,7 @@ function App(props) {
               }
               title
               description
+              externalUrl
             }
           }
         }
@@ -48,14 +49,14 @@ function App(props) {
       <hr />
       <div css={{ margin: 'auto', textAlign: 'center' }}>
         {edges.map(({ node: { timeToRead, frontmatter } }) => {
-          const { slug, image, title, description } = frontmatter;
+          const { slug, image, title, description, externalUrl } = frontmatter;
           const { childImageSharp: { fluid } = {} } = image || {};
 
           return (
             <div key={slug} css={{ padding: '1.5rem 0 1rem' }}>
               <h2 css={{ marginBottom: 0 }}>
                 <Link
-                  to={`/${slug}`}
+                  to={externalUrl || `/${slug}`}
                   className="post"
                   css={{
                     width: '100%',
@@ -95,7 +96,8 @@ function App(props) {
                 </p>
               )}
               <div css={{ fontSize: '0.75rem', fontStyle: 'italic' }}>
-                {timeToRead && <span>{timeToRead} min read</span>}
+                {externalUrl ||
+                  (timeToRead && <span>{timeToRead} min read</span>)}
               </div>
             </div>
           );

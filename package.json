@@ -42,7 +42,7 @@
   "scripts": {
     "build": "gatsby build --log-pages",
     "develop": "gatsby develop",
-    "format": "prettier --write \"src/**/*.js\"",
+    "format": "prettier --write \"src/**/*.{js,mdx}\"",
     "lint-staged": "lint-staged",
     "lint": "eslint . --ext js,mdx",
     "postinstall": "husky install",
@@ -68,7 +68,9 @@
     "url": "https://github.com/dereckquock/dereck"
   },
   "lint-staged": {
-    "*.{js,mdx}": "eslint --cache --fix",
-    "*.js": "prettier --write"
+    "*.{js,mdx}": [
+      "eslint --cache --fix",
+      "prettier --write"
+    ]
   }
 }
