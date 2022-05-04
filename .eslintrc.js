@@ -1,4 +1,7 @@
 module.exports = {
+  globals: {
+    __PATH_PREFIX__: true,
+  },
   extends: ['plugin:mdx/recommended', 'plugin:react/recommended', 'prettier'],
   plugins: ['react', '@emotion'],
   rules: {
@@ -9,7 +12,6 @@ module.exports = {
     '@emotion/jsx-import': 'error',
     '@emotion/pkg-renaming': 'error',
   },
-  parser: 'babel-eslint',
   parserOptions: {
     ecmaVersion: 10,
     sourceType: 'module',

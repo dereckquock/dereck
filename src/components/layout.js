@@ -22,7 +22,7 @@ const Layout = ({ path, children }) => {
       <div
         css={{
           margin: '0 auto',
-          maxWidth: 800,
+          maxWidth: 1024,
           padding: '0 1.5rem 1.45rem',
           paddingTop: 0,
         }}

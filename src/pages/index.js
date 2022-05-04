@@ -7,7 +7,6 @@ import Layout from '../components/layout';
 import SEO from '../components/seo';
 
 function App(props) {
-  // get blog posts, which always contain a date 📅
   const {
     allMdx: { edges = [] },
   } = useStaticQuery(graphql`
@@ -30,7 +29,6 @@ function App(props) {
               }
               title
               description
-              date(formatString: "MMMM DD, YYYY")
             }
           }
         }
@@ -43,14 +41,14 @@ function App(props) {
       <SEO title="Home" keywords={['dereck', 'quock', 'dereck quock']} />
 
       <Heading />
-      <p css={{ maxWidth: '45rem' }}>
-        I do full stack development and I love building things that help people.{' '}
-        <Link to="/about">Find out more about me here</Link>. 🍻🍻🍻 Cheers!
+      <p>
+        I love building things that help people.{' '}
+        <Link to="/about">Find out more about me here</Link> 🍻🍻🍻 Cheers!
       </p>
       <hr />
       <div css={{ margin: 'auto', textAlign: 'center' }}>
         {edges.map(({ node: { timeToRead, frontmatter } }) => {
-          const { slug, image, title, description, date } = frontmatter;
+          const { slug, image, title, description } = frontmatter;
           const { childImageSharp: { fluid } = {} } = image || {};
 
           return (
@@ -61,6 +59,8 @@ function App(props) {
                   className="post"
                   css={{
                     width: '100%',
+                    maxWidth: '40rem',
+                    margin: 'auto',
                     display: 'inline-block',
                     fontWeight: 700,
                     textDecoration: 'none',
@@ -72,6 +72,7 @@ function App(props) {
                 >
                   {fluid && (
                     <Image
+                      alt={title}
                       fluid={fluid}
                       className="post-image"
                       css={{
@@ -94,8 +95,7 @@ function App(props) {
                 </p>
               )}
               <div css={{ fontSize: '0.75rem', fontStyle: 'italic' }}>
-                <time>{date}</time>
-                {timeToRead && <span> • {timeToRead} min read</span>}
+                {timeToRead && <span>{timeToRead} min read</span>}
               </div>
             </div>
           );

@@ -21,7 +21,7 @@ const components = {
 
 export default function PageTemplate({ path, data: { mdx } }) {
   const { body, timeToRead, frontmatter } = mdx;
-  const { image, imageAuthor, imageAuthorUrl, title, date } = frontmatter;
+  const { image, imageAuthor, imageAuthorUrl, title } = frontmatter;
   const { childImageSharp: { fluid } = {} } = image || {};
 
   return (
@@ -38,7 +38,6 @@ export default function PageTemplate({ path, data: { mdx } }) {
             fontStyle: 'italic',
           }}
         >
-          <time>{date}</time>
           {timeToRead && <span> • {timeToRead} min read</span>}
         </div>
         {fluid && (
@@ -99,7 +98,6 @@ export const pageQuery = graphql`
         title
         description
         keywords
-        date(formatString: "MMMM DD, YYYY")
       }
     }
   }

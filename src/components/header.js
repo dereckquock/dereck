@@ -51,7 +51,7 @@ const Header = ({ siteTitle = '', path }) => {
               display: 'inline-block',
               lineHeight: '1.778rem',
               textDecoration: 'none',
-              textShadow: path.includes('/about') ? '0 0 4px' : '0',
+              textShadow: path.includes('/about') ? '0 0 4px' : 'none',
               ':focus': {
                 textDecoration: 'revert',
               },

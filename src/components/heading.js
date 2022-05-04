@@ -16,7 +16,7 @@ function Heading() {
     <h1 css={{ display: 'flex', alignItems: 'center' }}>
       <Avatar />
       <span css={{ marginLeft: '1.35rem' }}>
-        Hi{' '}
+        What&apos;s good!{' '}
         <span
           css={{
             display: 'inline-block',
@@ -26,7 +26,7 @@ function Heading() {
         >
           👋
         </span>{' '}
-        I&#39;m Dereck Quock
+        I&#39;m Dereck
       </span>
     </h1>
   );

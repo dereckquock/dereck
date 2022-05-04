@@ -3,8 +3,7 @@ const path = require('path');
 module.exports = {
   siteMetadata: {
     title: 'dereck quock',
-    description:
-      'I do full stack development and I love building things that help people.',
+    description: 'I love building things that help people.',
     author: '@dereckquock',
     siteUrl: 'https://dereckquock.com',
   },
