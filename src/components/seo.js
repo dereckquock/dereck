@@ -1,7 +1,7 @@
-import { useLocation } from '@reach/router';
-import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
 import { Helmet } from 'react-helmet';
+import { useLocation } from '@reach/router';
 
 function SEO(props) {
   const {
@@ -124,7 +124,7 @@ function SEO(props) {
         },
       ]
         .concat(
-          keywords.length > 0
+          keywords && keywords.length > 0
             ? {
                 name: 'keywords',
                 content: keywords.join(', '),
