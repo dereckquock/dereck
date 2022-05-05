@@ -36,6 +36,7 @@ const Header = ({ siteTitle = '', path }) => {
               fontSize: '1.125rem',
               fontStyle: 'italic',
               color: 'var(--white)',
+              textShadow: 'var(--white) 0.5px 0.5px 2px',
             }}
           >
             {siteTitle}
@@ -50,8 +51,11 @@ const Header = ({ siteTitle = '', path }) => {
               padding: '0 0.5rem',
               display: 'inline-block',
               lineHeight: '1.778rem',
+              fontStyle: 'italic',
               textDecoration: 'none',
-              textShadow: path.includes('/about') ? '0 0 4px' : 'none',
+              textShadow: path.includes('/about')
+                ? 'var(--white) 0 0 4px'
+                : 'var(--background) 0 0 4px',
               ':focus': {
                 textDecoration: 'revert',
               },
