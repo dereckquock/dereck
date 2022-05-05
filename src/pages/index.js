@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
 import { graphql, Link, useStaticQuery } from 'gatsby';
-import Image from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import Heading from '../components/heading';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
@@ -22,9 +22,7 @@ function App(props) {
               slug
               image {
                 childImageSharp {
-                  fluid(maxWidth: 400) {
-                    ...GatsbyImageSharpFluid
-                  }
+                  gatsbyImageData(width: 400, layout: CONSTRAINED)
                 }
               }
               title
@@ -50,7 +48,6 @@ function App(props) {
       <div css={{ margin: 'auto', textAlign: 'center' }}>
         {edges.map(({ node: { timeToRead, frontmatter } }) => {
           const { slug, image, title, description, externalUrl } = frontmatter;
-          const { childImageSharp: { fluid } = {} } = image || {};
 
           return (
             <div key={slug} css={{ padding: '1.5rem 0 1rem' }}>
@@ -71,15 +68,16 @@ function App(props) {
                     },
                   }}
                 >
-                  {fluid && (
-                    <Image
+                  {image && (
+                    <GatsbyImage
+                      image={image.childImageSharp.gatsbyImageData}
                       alt={title}
-                      fluid={fluid}
                       className="post-image"
                       css={{
                         maxWidth: '20rem',
                         margin: 'auto',
                         marginBottom: '1rem',
+                        display: 'block',
                         borderRadius: 8,
                         transform: 'scale(1)',
                         transition:

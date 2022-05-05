@@ -26,9 +26,7 @@ function SEO(props) {
       }
       defaultImage: file(relativePath: { eq: "me.jpg" }) {
         childImageSharp {
-          fluid(maxWidth: 300) {
-            ...GatsbyImageSharpFluid
-          }
+          gatsbyImageData(width: 300, layout: CONSTRAINED)
         }
       }
     }
@@ -37,12 +35,9 @@ function SEO(props) {
   const { siteUrl } = data.site.siteMetadata;
   const url = `${siteUrl}${pathname}`;
   const metaDescription = description || data.site.siteMetadata.description;
-  const {
-    childImageSharp: {
-      fluid: { src: defaultImage },
-    },
-  } = data.defaultImage;
-  const metaImage = `${siteUrl}${image || defaultImage}`;
+  const metaImage = `${siteUrl}${
+    image || data.defaultImage.childImageSharp.gatsbyImageData.src
+  }`;
   const structuredData = isPost
     ? `
     {

@@ -1,28 +1,22 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
 import { graphql, useStaticQuery } from 'gatsby';
-import Image from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 function Avatar() {
-  const {
-    logo: {
-      childImageSharp: { fluid },
-    },
-  } = useStaticQuery(graphql`
-    query {
+  const data = useStaticQuery(graphql`
+    {
       logo: file(relativePath: { eq: "me.jpg" }) {
         childImageSharp {
-          fluid(maxWidth: 800) {
-            ...GatsbyImageSharpFluid
-          }
+          gatsbyImageData(width: 800, layout: CONSTRAINED)
         }
       }
     }
   `);
 
   return (
-    <Image
-      fluid={fluid}
+    <GatsbyImage
+      image={data.logo.childImageSharp.gatsbyImageData}
       css={{
         width: '6rem',
         height: '6rem',

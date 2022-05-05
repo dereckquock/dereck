@@ -2,7 +2,7 @@
 import { jsx } from '@emotion/react';
 import { MDXProvider } from '@mdx-js/react';
 import { graphql, Link } from 'gatsby';
-import Image from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import Code from './code';
 import Layout from './layout';
@@ -22,11 +22,14 @@ const components = {
 export default function PageTemplate({ path, data: { mdx } }) {
   const { body, timeToRead, frontmatter } = mdx;
   const { image, imageAuthor, imageAuthorUrl, title } = frontmatter;
-  const { childImageSharp: { fluid } = {} } = image || {};
 
   return (
     <Layout path={path}>
-      <SEO {...frontmatter} isPost image={fluid.src} />
+      <SEO
+        {...frontmatter}
+        isPost
+        image={image.childImageSharp.gatsbyImageData.src}
+      />
 
       <article>
         <h1>{title}</h1>
@@ -40,9 +43,12 @@ export default function PageTemplate({ path, data: { mdx } }) {
         >
           {timeToRead && <span>{timeToRead} min read</span>}
         </div>
-        {fluid && (
+        {image && (
           <div css={{ marginBottom: '1rem' }}>
-            <Image fluid={fluid} css={{ borderRadius: 8 }} />
+            <GatsbyImage
+              image={image.childImageSharp.gatsbyImageData}
+              css={{ display: 'block', borderRadius: 8 }}
+            />
             {imageAuthor && (
               <div css={{ fontSize: '0.75rem', textAlign: 'right' }}>
                 Photo by{' '}
@@ -88,9 +94,7 @@ export const pageQuery = graphql`
       frontmatter {
         image {
           childImageSharp {
-            fluid(maxWidth: 720) {
-              ...GatsbyImageSharpFluid
-            }
+            gatsbyImageData(width: 720, layout: CONSTRAINED)
           }
         }
         imageAuthor
