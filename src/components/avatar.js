@@ -21,7 +21,7 @@ function Avatar() {
         width: '6rem',
         height: '6rem',
         flexShrink: 0,
-        borderRadius: 50,
+        borderRadius: '3rem',
       }}
     />
   );
