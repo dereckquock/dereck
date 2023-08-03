@@ -15,7 +15,7 @@
     "@reach/dialog": "^0.17.0",
     "@reach/visually-hidden": "^0.17.0",
     "facepaint": "^1.2.1",
-    "gatsby": "^4.13.1",
+    "gatsby": "^4.25.7",
     "gatsby-image": "^3.10.0",
     "gatsby-plugin-emotion": "^7.13.0",
     "gatsby-plugin-gatsby-cloud": "^4.13.0",
